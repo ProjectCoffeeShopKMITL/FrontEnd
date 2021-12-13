@@ -1,10 +1,5 @@
-.part1 {
-    background: rgb(255, 165, 165);
-    width: 100%;
-    height: 500px;
-}
 .carousel {
-    background: rgb(255, 99, 99);
+    background: var(--brownlight);
     height: 500px;
 }
 .coverTextIncarousel {
@@ -84,8 +79,8 @@ h4 {
 }
 
 .part3 {
-    /* background: var(--white); */
-    background: #ffffff;
+    background: var(--white);
+    /* background: #ffffff; */
     font-family: "Libre Baskerville";
     font-size: 24px;
     height: 400px;
@@ -95,26 +90,45 @@ h4 {
     text-align: center;
     margin-bottom: 4rem;
 }
+
 .containerImg {
-    /* background: rgb(255, 114, 114); */
+    background: rgb(255, 114, 114);
     height: 200px;
-    width: 100%;
     display: flex;
     justify-content: center;
 }
-.img:hover {
+.coverImg:hover {
     transform: scale(1.25);
+    z-index: 1;
+}
+.coverImg:hover img {
+    filter: brightness(60%);
+}
+.coverImg:hover .imgBox1::after {
+    opacity: 1;
+}
+.coverImg {
+    flex: 1;
+    position: relative;
     transition: 0.5s;
 }
-.imgBox1:hover::after {
+.imgBox1::after {
+    transition: 0.5s;
     position: absolute;
-    z-index: 1;
-    content: "Latte";
+    content: attr(title);
+    text-align: center;
+    color: var(--white);
+    width: 100%;
+    height: 30px;
+    bottom: 1rem;
+    left: 0;
+    opacity: 0;
 }
 .img {
-    max-width: 100%;
-    height: auto;
-    margin: 0 1rem;
+    width: calc(100vw / 6);
+    height: 200px;
+    object-fit: cover;
+    transition: 0.2s;
 }
 
 .caption {
@@ -132,4 +146,11 @@ h4 {
     letter-spacing: 2px;
     font-size: 32px;
     color: var(--black);
+}
+
+.coverCarousel :global(.ant-carousel) :global(.slick-dots) li:global(.slick-active) button {
+    background: var(--black);
+}
+.coverCarousel :global(.ant-carousel) :global(.slick-dots) li button {
+    background: var(--brownlight);
 }

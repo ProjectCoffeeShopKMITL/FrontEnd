@@ -105,41 +105,67 @@ export function HomePage() {
       <div className={styles.part3}>
         <h4 className={styles.headP3}>SIGNATURE MENU</h4>
         <div className={styles.containerImg}>
-          <img src={img8} className={css(styles.img, styles.imgBox1)} />
-          <img src={img12} className={styles.img} />
-          <img src={img13} className={styles.img} />
-          <img src={img14} className={styles.img} />
-          {/* <img src={img16} className={styles.img} />
-          <img src={img17} className={styles.img} /> */}
+          <div className={styles.coverImg}>
+            <div className={styles.imgBox1} title="Latte">
+              <img src={img8} className={styles.img} />
+            </div>
+          </div>
+          <div className={styles.coverImg}>
+            <div className={styles.imgBox1} title="Latte">
+              <img src={img12} className={styles.img} />
+            </div>
+          </div>
+          <div className={styles.coverImg}>
+            <div className={styles.imgBox1} title="Latte">
+              <img src={img13} className={styles.img} />
+            </div>
+          </div>
+          <div className={styles.coverImg}>
+            <div className={styles.imgBox1} title="Latte">
+              <img src={img14} className={styles.img} />
+            </div>
+          </div>
+          <div className={styles.coverImg}>
+            <div className={styles.imgBox1} title="Latte">
+              <img src={img16} className={styles.img} />
+            </div>
+          </div>
+          <div className={styles.coverImg}>
+            <div className={styles.imgBox1} title="Latte">
+              <img src={img17} className={styles.img} />
+            </div>
+          </div>
         </div>
       </div>
 
-      <Carousel autoplay autoplaySpeed={5000} draggable>
-        <div className={styles.caption}>
-          <div className={styles.textCaption}>
-            <RiDoubleQuotesR size={60} />
-            <h4>Life happen, coffee helps</h4>
+      <div className={styles.coverCarousel}>
+        <Carousel autoplay autoplaySpeed={5000} draggable>
+          <div className={styles.caption}>
+            <div className={styles.textCaption}>
+              <RiDoubleQuotesR size={60} />
+              <h4>Life happen, coffee helps</h4>
+            </div>
           </div>
-        </div>
-        <div className={styles.caption}>
-          <div className={styles.textCaption}>
-            <RiDoubleQuotesR size={60} />
-            <h4>Coffee knows how to heal my loneliness</h4>
+          <div className={styles.caption}>
+            <div className={styles.textCaption}>
+              <RiDoubleQuotesR size={60} />
+              <h4>Coffee knows how to heal my loneliness</h4>
+            </div>
           </div>
-        </div>
-        <div className={styles.caption}>
-          <div className={styles.textCaption}>
-            <RiDoubleQuotesR size={60} />
-            <h4>The road to success is pabed in Coffee</h4>
+          <div className={styles.caption}>
+            <div className={styles.textCaption}>
+              <RiDoubleQuotesR size={60} />
+              <h4>The road to success is pabed in Coffee</h4>
+            </div>
           </div>
-        </div>
-        <div className={styles.caption}>
-          <div className={styles.textCaption}>
-            <RiDoubleQuotesR size={60} />
-            <h4>Coffee is like a hug in a mug</h4>
+          <div className={styles.caption}>
+            <div className={styles.textCaption}>
+              <RiDoubleQuotesR size={60} />
+              <h4>Coffee is like a hug in a mug</h4>
+            </div>
           </div>
-        </div>
-      </Carousel>
+        </Carousel>
+      </div>
     </div>
   )
 }
