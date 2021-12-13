@@ -25,7 +25,9 @@
     position: absolute;
     z-index: 1;
 }
-
+.bgColor {
+    background: var(--white);
+}
 .container {
     /* background: #000; */
     max-width: 1600px;
@@ -62,4 +64,11 @@
 .sortFunction {
     width: 160px;
     border-radius: 2px;
+}
+
+.menuList {
+    /* background: rgb(255, 144, 144); */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 280px);
+    justify-content: space-between;
 }

@@ -49,25 +49,6 @@
     display: flex;
 }
 
-/* .imgProfile {
-    border-radius: 50%;
-    width: 400px;
-    height: 300px;
-} */
-/* .imgProfile {
-    display: inline-block;
-    position: relative;
-    width: 350px;
-    height: 350px;
-    overflow: hidden;
-    border-radius: 50%;
-}
-
-.imgProfile img {
-    width: auto;
-    height: 100%;
-    margin-left: -100px;
-} */
 .imgProfile {
     width: 400px;
     height: 400px;

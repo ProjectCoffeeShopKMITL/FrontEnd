@@ -111,27 +111,27 @@ export function HomePage() {
             </div>
           </div>
           <div className={styles.coverImg}>
-            <div className={styles.imgBox1} title="Latte">
+            <div className={styles.imgBox1} title="Cappuccino">
               <img src={img12} className={styles.img} />
             </div>
           </div>
           <div className={styles.coverImg}>
-            <div className={styles.imgBox1} title="Latte">
+            <div className={styles.imgBox1} title="Americano">
               <img src={img13} className={styles.img} />
             </div>
           </div>
           <div className={styles.coverImg}>
-            <div className={styles.imgBox1} title="Latte">
+            <div className={styles.imgBox1} title="Espresso">
               <img src={img14} className={styles.img} />
             </div>
           </div>
           <div className={styles.coverImg}>
-            <div className={styles.imgBox1} title="Latte">
+            <div className={styles.imgBox1} title="Mocha">
               <img src={img16} className={styles.img} />
             </div>
           </div>
           <div className={styles.coverImg}>
-            <div className={styles.imgBox1} title="Latte">
+            <div className={styles.imgBox1} title="Long Black ">
               <img src={img17} className={styles.img} />
             </div>
           </div>

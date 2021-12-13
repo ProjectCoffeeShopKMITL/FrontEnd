@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 import styles from './Navbar.module.css'
 import css from 'classnames'
 
-import { AiOutlineShoppingCart } from 'react-icons/ai'
+import { IoCartOutline } from 'react-icons/io5'
 import logo from '../../picture/logocoffee.png'
 
 export function Navbar() {
@@ -61,7 +61,7 @@ export function Navbar() {
             activeClassName={styles.active}
             className={css(styles.navlink)}
           >
-            <AiOutlineShoppingCart size={24} />
+            <IoCartOutline size={24} />
           </NavLink>
         </li>
 

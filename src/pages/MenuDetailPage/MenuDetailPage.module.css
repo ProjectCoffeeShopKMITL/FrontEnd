@@ -27,19 +27,137 @@
 }
 
 .container {
-    background: #000;
+    /* background: #000; */
     color: var(--white);
-    max-width: 1600px;
+    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 4rem 0;
 }
 
+.coverDetail {
+    /* background: rgb(255, 111, 111); */
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 300px;
+    display: flex;
+}
 .carouselContainer {
-    width: 300px;
+    width: 350px;
 }
 .img {
-    width: 300px;
-    height: 200px;
+    border-radius: 4px;
+    width: 350px;
+    height: 250px;
     object-fit: cover;
+}
+
+.detail {
+    /* background: rgb(130, 255, 119); */
+    max-width: 400px;
+    width: 100%;
+    margin-left: auto;
+    font-family: "Libre Baskerville";
+}
+
+.name {
+    font-size: 26px;
+    color: var(--black);
+}
+
+.coverReview {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.rateCustom :global(.ant-rate) {
+    /* background: rgb(255, 133, 133); */
+    display: inline-block;
+    margin-bottom: 4px;
+    padding: 0;
+    color: var(--brownlight);
+    font-size: 12px;
+    outline: none;
+}
+
+.star :global(.ant-rate-star):not(:last-child) {
+    margin-right: 2px;
+}
+
+.star :global(.ant-rate-star-first),
+:global(.ant-rate-star-second) {
+    color: var(--gray5);
+    transition: all 0.3s;
+    user-select: none;
+}
+:global(.Menu_rateCustom__IaJVW) :global(.ant-rate) {
+    margin-bottom: 2px;
+    padding: 0;
+    color: var(--brownlight);
+    font-size: 12px;
+    outline: none;
+}
+.review {
+    font-size: 10px;
+    color: var(--gray5);
+    margin-left: 10px;
+}
+
+.price {
+    font-size: 22px;
+    color: var(--brownlight);
+}
+.text {
+    margin-top: 1rem;
+    font-size: 12px;
+    color: var(--black);
+}
+
+.coverCountAndAdd {
+    display: flex;
+    justify-content: start;
+}
+.coverCount {
+    margin-right: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100px;
+    color: var(--black);
+    /* background: #000; */
+}
+.count {
+    background: rgba(219, 219, 219, 0.726);
+    color: var(--black);
+    width: 26px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+}
+
+.button {
+    /* width: 130px; */
+    width: 150px;
+    height: 30px;
+    border-radius: 2px;
+    background: var(--brownlight);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4px;
+}
+.textButton {
+    font-size: 12px;
+}
+.iconCart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    font-size: 18px;
+    margin-right: 10px;
 }
