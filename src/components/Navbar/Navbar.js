@@ -56,13 +56,16 @@ export function Navbar() {
         <div className={styles.divider} />
 
         <li className={css(styles.link, styles.cart)}>
-          <NavLink
+          {/* <NavLink
             to="/cart"
             activeClassName={styles.active}
             className={css(styles.navlink)}
           >
             <IoCartOutline size={24} />
-          </NavLink>
+          </NavLink> */}
+          <div activeClassName={styles.active} className={css(styles.navlink)}>
+            <IoCartOutline size={24} />
+          </div>
         </li>
 
         <li className={styles.link}>

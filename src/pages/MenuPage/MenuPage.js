@@ -177,7 +177,7 @@ export function MenuPage() {
             />
             <div className={styles.coverFilterAndSort}>
               <div>
-                <span>Filter by</span>
+                <span className={styles.text}>Filter by</span>
                 <Select
                   className={styles.filterFunction}
                   value={filterBy}
@@ -191,7 +191,7 @@ export function MenuPage() {
               </div>
 
               <div>
-                <span>Sort by</span>
+                <span className={styles.text}>Sort by</span>
                 <Select
                   className={styles.sortFunction}
                   value={sortBy}
