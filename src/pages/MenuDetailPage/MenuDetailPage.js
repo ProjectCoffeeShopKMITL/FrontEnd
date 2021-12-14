@@ -6,7 +6,8 @@ import { FiMinus } from 'react-icons/fi'
 import { FiPlus } from 'react-icons/fi'
 import { IoCartOutline } from 'react-icons/io5'
 
-import { Carousel, Divider, Rate } from 'antd'
+import { Carousel, Divider, Rate, Avatar, Input } from 'antd'
+import { UserOutlined } from '@ant-design/icons'
 
 import img1 from '../../picture/img1.jpeg'
 import img2 from '../../picture/img2.jpg'
@@ -49,7 +50,7 @@ export function MenuDetailPage() {
           </div>
           <div className={styles.detail}>
             <span className={styles.name}>Cappuccino</span>
-            <div className={styles.coverReview}>
+            <div className={styles.coverStars}>
               <div className={styles.rateCustom}>
                 <Rate disabled defaultValue={4} className={styles.star} />
               </div>
@@ -75,6 +76,31 @@ export function MenuDetailPage() {
                 </div>
                 <span className={styles.textButton}>ADD TO CART</span>
               </div>
+            </div>
+          </div>
+        </div>
+        <div className={styles.divider}>
+          <Divider />
+        </div>
+        <div className={styles.coverReview}>
+          <span className={styles.headText}>Review</span>
+          <div className={styles.inReview}>
+            <Avatar size={44} icon={<UserOutlined />} />
+          </div>
+        </div>
+        <div className={styles.coverReview}>
+          <span className={styles.headText}>Add a review</span>
+          <div className={styles.inWriteReview}>
+            <div className={styles.coverClickRate}>
+              <span className={styles.clickRate}>your rating</span>
+              <div className={styles.rateCustom}>
+                <Rate disabled className={styles.star} />
+              </div>
+            </div>
+            <div className={styles.contact}>
+              <Input placeholder="Firstname*" className={styles.nameContact} />
+              <Input placeholder="Lastname*" className={styles.nameContact} />
+              <Input placeholder="Email*" className={styles.mailContact} />
             </div>
           </div>
         </div>

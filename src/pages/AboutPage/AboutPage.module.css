@@ -124,7 +124,7 @@
     align-items: center;
 }
 .bottomBoxContainer {
-    background: rgb(120, 255, 210);
+    /* background: rgb(120, 255, 210); */
     width: 500px;
     height: 400px;
 }

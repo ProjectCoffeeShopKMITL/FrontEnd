@@ -29,7 +29,7 @@
 .container {
     /* background: #000; */
     color: var(--white);
-    max-width: 1200px;
+    max-width: 800px;
     width: 100%;
     margin: 0 auto;
     padding: 4rem 0;
@@ -40,7 +40,7 @@
     max-width: 800px;
     width: 100%;
     margin: 0 auto;
-    min-height: 300px;
+    /* min-height: 300px; */
     display: flex;
 }
 .carouselContainer {
@@ -66,7 +66,7 @@
     color: var(--black);
 }
 
-.coverReview {
+.coverStars {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -160,4 +160,58 @@
     color: var(--white);
     font-size: 18px;
     margin-right: 10px;
+}
+
+.divider :global(.ant-divider-horizontal) {
+    display: flex;
+    clear: both;
+    width: 100%;
+    min-width: 100%;
+    margin: 2rem 0;
+}
+
+.coverReview {
+    /* background: #000; */
+    min-height: 400px;
+}
+.headText {
+    background: rgb(255, 162, 162);
+    font-size: 16px;
+    font-family: "Libre Baskerville";
+}
+.inReview {
+    background: rgb(115, 255, 73);
+    max-width: 600px;
+    height: 300px;
+}
+
+.inWriteReview {
+    /* background: rgb(73, 167, 255); */
+    width: 100%;
+    /* max-width: 600px; */
+    height: 300px;
+}
+.coverClickRate {
+    background: rgb(180, 86, 86);
+    display: flex;
+    align-items: center;
+}
+.clickRate {
+    margin-right: 1rem;
+    font-size: 14px;
+    color: var(--brownlight);
+}
+
+.contact {
+    /* background: rgb(68, 117, 64); */
+    display: flex;
+    gap: 1rem;
+}
+.nameContact {
+    width: 400px;
+    /* margin-right: 0.5rem; */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 4px 0px;
+}
+.mailContact {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 4px 0px;
 }
