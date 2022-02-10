@@ -26,6 +26,9 @@
     z-index: 1;
 }
 
+.body {
+    background: var(--white);
+}
 .galleryContainer {
     max-width: 1600px;
     width: 100%;

@@ -24,22 +24,24 @@ export function GalleryPage() {
         <div className={styles.imgHeader}></div>
         <h4 className={styles.textHeader}>GALLERY</h4>
       </div>
-      <div className={styles.galleryContainer}>
-        <div className={styles.gallery}>
-          <Image src={img1} />
-          <Image src={img2} />
-          <Image src={img3} />
-          <Image src={img4} />
-          <Image src={img5} />
-          <Image src={img6} />
-          <Image src={img8} />
-          <Image src={img9} />
-          <Image src={img10} />
-          <Image src={img11} />
-          <Image src={img12} />
-          <Image src={img13} />
-          <Image src={img14} />
-          <Image src={img15} />
+      <div className={styles.body}>
+        <div className={styles.galleryContainer}>
+          <div className={styles.gallery}>
+            <Image src={img1} />
+            <Image src={img2} />
+            <Image src={img3} />
+            <Image src={img4} />
+            <Image src={img5} />
+            <Image src={img6} />
+            <Image src={img8} />
+            <Image src={img9} />
+            <Image src={img10} />
+            <Image src={img11} />
+            <Image src={img12} />
+            <Image src={img13} />
+            <Image src={img14} />
+            <Image src={img15} />
+          </div>
         </div>
       </div>
     </div>

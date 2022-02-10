@@ -25,11 +25,12 @@
     position: absolute;
     z-index: 1;
 }
+/* NOTE header */
 
 .container {
-    /* background: #000; */
+    /* background: rgb(255, 144, 144); */
     color: var(--white);
-    max-width: 800px;
+    max-width: 900px;
     width: 100%;
     margin: 0 auto;
     padding: 4rem 0;
@@ -139,7 +140,14 @@
     border-radius: 2px;
 }
 
+/* .coverButton:hover {
+    transform: scale(1.05);
+} */
+.button:hover {
+    transform: scale(1.05);
+}
 .button {
+    transition: 0.2s;
     /* width: 130px; */
     width: 150px;
     height: 30px;
@@ -150,6 +158,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 4px;
+    cursor: pointer;
 }
 .textButton {
     font-size: 12px;
@@ -230,6 +239,7 @@
     /* background: #000; */
     color: var(--black);
     display: grid;
-    grid-template-columns: repeat(auto-fill, 280px);
+    /* grid-template-columns: repeat(auto-fill, 280px); */
+    grid-template-columns: repeat(auto-fill, 200px);
     justify-content: space-between;
 }

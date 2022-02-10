@@ -69,7 +69,8 @@
 .menuList {
     /* background: rgb(255, 144, 144); */
     display: grid;
-    grid-template-columns: repeat(auto-fill, 280px);
+    /* grid-template-columns: repeat(auto-fill, 280px); */
+    grid-template-columns: repeat(auto-fill, 200px);
     justify-content: space-between;
 }
 .text {

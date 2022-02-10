@@ -5,7 +5,8 @@
     margin-bottom: 1.5rem;
     cursor: pointer;
     transition: 0.2s;
-    width: 280px;
+    /* width: 280px; */
+    width: 200px;
 }
 .container:hover {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 10px 8px 0px;
@@ -14,8 +15,9 @@
 
 .img {
     transition: 0.5s;
-    width: 280px;
-    height: 260px;
+    /* width: 280px; */
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     border-radius: 4px 4px 0 0;
 }
@@ -43,7 +45,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .name {
@@ -52,6 +54,7 @@
 .price {
     color: var(--brownlight);
     font-size: 14px;
+    font-style: italic;
 }
 
 .rateCustom :global(.ant-rate) {
@@ -61,17 +64,16 @@
     padding: 0;
     color: var(--brownlight);
     font-size: 12px;
-    outline: none;
 }
 
 .star :global(.ant-rate-star):not(:last-child) {
     margin-right: 2px;
 }
 
-.star :global(.ant-rate-star-first),
-:global(.ant-rate-star-second) {
-    color: var(--gray4);
-    transition: all 0.3s;
+.star :global(.ant-rate-star-second) {
+    color: var(--gray5);
+    /* background: var(--gray4); */
+    /* transition: all 0.3s; */
     user-select: none;
 }
 :global(.Menu_rateCustom__IaJVW) :global(.ant-rate) {
@@ -83,9 +85,8 @@
 }
 
 .button {
-    /* width: 130px; */
-    width: 100%;
-    height: 30px;
+    /* width: 100%; */
+    height: 40px;
     border-radius: 2px;
     background: var(--brownlight);
     color: var(--white);

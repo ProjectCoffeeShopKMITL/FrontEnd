@@ -17,17 +17,17 @@ export function Menu({ data }) {
       onClick={() => history.push(`/menu/${data.id}`)}
     >
       <div>
-        <img src={data.picture} className={styles.img} />
+        <img src={data.img} className={styles.img} />
       </div>
-      {data.salePrice !== null && <div className={styles.sale}>sale</div>}
+      {data.sale_to !== null && <div className={styles.sale}>sale</div>}
 
       <div className={styles.coverDetail}>
         <div>
-          <span className={styles.name}>{data.name}</span>
+          <span className={styles.name}>{data.menu_name}</span>
           <div className={styles.rateCustom}>
-            <Rate disabled defaultValue={data.rate} className={styles.star} />
+            <Rate disabled defaultValue={data.star} className={styles.star} />
           </div>
-          <span className={styles.price}>{data.price} Bath</span>
+          <span className={styles.price}>฿ {data.price}</span>
         </div>
         <div className={styles.button}>
           <div className={styles.icon}>

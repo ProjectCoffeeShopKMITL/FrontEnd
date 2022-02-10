@@ -26,6 +26,10 @@
     z-index: 1;
 }
 
+.body {
+    background: var(--white);
+}
+
 .container {
     /* background: #000; */
     max-width: 1600px;
