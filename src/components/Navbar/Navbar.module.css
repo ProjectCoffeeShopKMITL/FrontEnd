@@ -120,7 +120,7 @@
   width: 100vw;
   height: calc(100vh - 70px);
   background: rgba(0, 0, 0);
-  bottom: 0;
+  top: 70px;
   left: 0;
   display: none;
   flex-direction: column;
@@ -159,12 +159,21 @@
   margin-left: -10px;
 }
 
+.loginMobile {
+  display: none;
+  color: var(--white);
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 960px) {
   .text {
     display: none;
   }
-  .name {
+  .shopName {
     display: none;
+  }
+  .loginMobile {
+    display: flex;
   }
   .hambergurButton {
     display: flex;

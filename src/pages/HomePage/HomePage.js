@@ -90,7 +90,7 @@ export function HomePage() {
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
           </div>
-          <SiBuymeacoffee size={200} />
+          <SiBuymeacoffee size={200} className={styles.ourProductIcon} />
           <div className={styles.rightBox}>
             <h4>Soda</h4>
             <p className={styles.textInBox}>
@@ -139,6 +139,42 @@ export function HomePage() {
               <img src={img17} className={styles.img} />
             </div>
           </div>
+        </div>
+        <div className={styles.coverCarouselMobile}>
+          {!isNavbarOpen && (
+            <Carousel autoplaySpeed={5000} draggable>
+              <div className={styles.coverImgMobile}>
+                <div className={styles.imgBox1} title="Latte">
+                  <img src={img8} className={styles.imgMoboile} />
+                </div>
+              </div>
+              <div className={styles.coverImgMobile}>
+                <div className={styles.imgBox1} title="Cappuccino">
+                  <img src={img12} className={styles.imgMoboile} />
+                </div>
+              </div>
+              <div className={styles.coverImgMobile}>
+                <div className={styles.imgBox1} title="Americano">
+                  <img src={img13} className={styles.imgMoboile} />
+                </div>
+              </div>
+              <div className={styles.coverImgMobile}>
+                <div className={styles.imgBox1} title="Espresso">
+                  <img src={img14} className={styles.imgMoboile} />
+                </div>
+              </div>
+              <div className={styles.coverImgMobile}>
+                <div className={styles.imgBox1} title="Mocha">
+                  <img src={img16} className={styles.imgMoboile} />
+                </div>
+              </div>
+              <div className={styles.coverImgMobile}>
+                <div className={styles.imgBox1} title="Long Black ">
+                  <img src={img17} className={styles.imgMoboile} />
+                </div>
+              </div>
+            </Carousel>
+          )}
         </div>
       </div>
 

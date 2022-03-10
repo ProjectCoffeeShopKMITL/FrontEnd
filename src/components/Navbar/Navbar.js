@@ -51,6 +51,13 @@ export function Navbar() {
           COFFEE SHOP
         </NavLink>
       </div>
+      <div className={styles.loginMobile}>
+        <li className={styles.link}>
+          <div activeClassName={styles.activeLogin} className={styles.login}>
+            LOGIN
+          </div>
+        </li>
+      </div>
 
       <ul className={styles.text}>
         <li className={styles.link}>
