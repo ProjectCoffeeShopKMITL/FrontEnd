@@ -49,8 +49,8 @@ export function AboutPage() {
                 </p>
               </div>
               <div className={styles.contactContainer}>
-                <FiFacebook className={styles.icon} />
-                <FiInstagram className={styles.icon} />
+                {/* <FiFacebook className={styles.icon} />
+                <FiInstagram className={styles.icon} /> */}
                 <FiMail className={styles.icon} />
                 <span className={styles.textInContact}>
                   Coffeeshop@gmail.com

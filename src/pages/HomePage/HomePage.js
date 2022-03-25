@@ -142,7 +142,7 @@ export function HomePage() {
         </div>
         <div className={styles.coverCarouselMobile}>
           {!isNavbarOpen && (
-            <Carousel autoplaySpeed={5000} draggable>
+            <Carousel autoplaySpeed={5000} draggable arrows>
               <div className={styles.coverImgMobile}>
                 <div className={styles.imgBox1} title="Latte">
                   <img src={img8} className={styles.imgMoboile} />
@@ -183,26 +183,26 @@ export function HomePage() {
           <Carousel autoplay autoplaySpeed={5000} draggable>
             <div className={styles.caption}>
               <div className={styles.textCaption}>
-                <RiDoubleQuotesR size={60} />
-                <h4>Life happen, coffee helps</h4>
+                <RiDoubleQuotesR className={styles.imgCaption} />
+                <h4>Life happen, coffee helps.</h4>
               </div>
             </div>
             <div className={styles.caption}>
               <div className={styles.textCaption}>
-                <RiDoubleQuotesR size={60} />
-                <h4>Coffee knows how to heal my loneliness</h4>
+                <RiDoubleQuotesR className={styles.imgCaption} />
+                <h4>Coffee knows how to heal my loneliness.</h4>
               </div>
             </div>
             <div className={styles.caption}>
               <div className={styles.textCaption}>
-                <RiDoubleQuotesR size={60} />
-                <h4>The road to success is pabed in Coffee</h4>
+                <RiDoubleQuotesR className={styles.imgCaption} />
+                <h4>The road to success is pabed in Coffee.</h4>
               </div>
             </div>
             <div className={styles.caption}>
               <div className={styles.textCaption}>
-                <RiDoubleQuotesR size={60} />
-                <h4>Coffee is like a hug in a mug</h4>
+                <RiDoubleQuotesR className={styles.imgCaption} />
+                <h4>Coffee is like a hug in a mug.</h4>
               </div>
             </div>
           </Carousel>

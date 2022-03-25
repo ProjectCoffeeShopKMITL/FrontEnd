@@ -17,7 +17,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 40px;
+    font-size: 32px;
     font-family: "Libre Baskerville";
     height: 300px;
     width: 100%;
@@ -34,7 +34,7 @@
     /* background: #000; */
     max-width: 1600px;
     width: 100%;
-    height: 1000px;
+    /* height: 1000px; */
     margin: 0 auto;
     padding: 4rem;
     font-family: "Libre Baskerville";
@@ -50,7 +50,6 @@
     /* height: 100%; */
     display: flex;
     align-items: center;
-    display: flex;
 }
 
 .imgProfile {
@@ -105,7 +104,6 @@
 }
 
 .icon {
-    width: 28px;
     font-size: 24px;
     margin-right: 0.25rem;
 }
@@ -116,16 +114,22 @@
 
 .bottomBox {
     /* background: rgb(255, 112, 112); */
+    max-width: 1300px;
     width: 100%;
-    height: 50%;
+    margin: 0 auto;
+    min-height: 450px;
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
+    justify-content: space-between;
 }
 .bottomBoxContainer {
     /* background: rgb(120, 255, 210); */
-    width: 500px;
-    height: 400px;
+    /* max-width: 500px;
+    width: 100%; */
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    /* height: 400px; */
 }
 .coverHeadTextOurShop {
     width: 100%;
@@ -134,13 +138,61 @@
 }
 
 .imgShop {
+    object-fit: cover;
     border-radius: 10px;
-    width: 500px;
+    max-width: 600px;
+    width: 100%;
+    /* max-height: 400px; */
+    /* height: 100%; */
     height: 400px;
+}
+
+p {
+    text-indent: 1rem;
 }
 
 @media screen and (max-width: 1200px) {
     .topBoxContainer {
         max-width: 450px;
+    }
+    .imgShop {
+        max-width: 450px;
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .container {
+        padding: 2rem;
+    }
+    .topBox {
+        flex-direction: column;
+    }
+    .imgProfile {
+        width: 300px;
+        height: 300px;
+    }
+    .coverCaption {
+        /* border: 0; */
+        border-left: 4px solid var(--brownlight);
+        text-align: center;
+    }
+    .icon {
+        font-size: 20px;
+    }
+    .textInContact {
+        font-size: 12px;
+    }
+
+    .bottomBox {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .bottomBoxContainer {
+        max-width: 450px;
+    }
+
+    .imgShop {
+        height: 200px;
     }
 }

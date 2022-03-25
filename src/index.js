@@ -4,12 +4,15 @@ import './index.css'
 import App from './App'
 import 'antd/dist/antd.less'
 import { NavbarProvider } from './context/NavbarContext'
+import { CartProvider } from './context/CartContext'
 
 ReactDOM.render(
   <React.StrictMode>
-    <NavbarProvider>
-      <App />
-    </NavbarProvider>
+    <CartProvider>
+      <NavbarProvider>
+        <App />
+      </NavbarProvider>
+    </CartProvider>
   </React.StrictMode>,
   document.getElementById('root')
 )

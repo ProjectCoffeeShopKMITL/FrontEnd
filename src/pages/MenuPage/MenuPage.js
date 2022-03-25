@@ -4,6 +4,7 @@ import { CoffeeType } from '../../constants'
 import styles from './MenuPage.module.css'
 import css from 'classnames'
 import { Menu } from '../../components/Menu/Menu'
+import { useCartContext } from '../../context/CartContext'
 
 import { CgSearch } from 'react-icons/cg'
 
@@ -24,6 +25,8 @@ export function MenuPage() {
   const [searchText, setSearchText] = useState('')
   const [filterBy, setFilterBy] = useState('')
   const [sortBy, setSortBy] = useState('recommend')
+
+  const { cartList } = useCartContext()
 
   const fetchMenus = async () => {
     try {
@@ -83,7 +86,7 @@ export function MenuPage() {
               placeholder="search menu"
               prefix={<CgSearch />}
               className={styles.search}
-              style={{ width: 200 }}
+              // style={{ width: 200 }}
               onKeyDown={(e) => {
                 if (e.code === 'Enter') {
                   onSearch()
@@ -128,6 +131,8 @@ export function MenuPage() {
               <Menu data={eachData} key={eachData.id} />
             ))}
           </div>
+
+          {JSON.stringify(cartList, null, 2)}
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 40px;
+    font-size: 32px;
     font-family: "Libre Baskerville";
     height: 300px;
     width: 100%;
@@ -46,9 +46,11 @@
     margin-bottom: 2rem;
 }
 
-.search {
+:global(.ant-input-affix-wrapper).search {
     font-family: "Libre Baskerville";
+    max-width: 200px;
 }
+
 .coverFilterAndSort {
     /* background: rgb(73, 115, 255); */
     width: 280px;
@@ -76,4 +78,21 @@
 .text {
     color: var(--gray3);
     font-size: 12px;
+}
+
+@media only screen and (max-width: 960px) {
+    .coverFunction {
+        flex-direction: column;
+        height: 90px;
+    }
+    .coverFilterAndSort {
+        width: 100%;
+    }
+    :global(.ant-input-affix-wrapper).search {
+        max-width: none;
+    }
+
+    .menuList {
+        grid-template-columns: 1fr;
+    }
 }

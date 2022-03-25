@@ -10,8 +10,8 @@ import { GoLocation } from 'react-icons/go'
 export function Footer() {
   return (
     <div className={styles.container}>
-      <div className={styles.imgCover} />
-      {/* <div className={styles.footerContainer}>
+      {/* <div className={styles.imgCover} /> */}
+      <div className={styles.footerContainer}>
         <div className={styles.openHour}>
           <div className={styles.header}>OPENING HOURS</div>
           <div className={styles.inOpenHour}>
@@ -82,7 +82,7 @@ export function Footer() {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
     </div>
   )
 }

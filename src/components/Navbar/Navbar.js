@@ -27,10 +27,10 @@ export function Navbar() {
           document.getElementById('navbar').style.top = '-70px'
         }
         prevScrollpos = currentScrollPos
-        if (currentScrollPos < 230 && !checkScroll) {
+        if (currentScrollPos < 70 && !checkScroll) {
           setIsNavbarShowBg(false)
           checkScroll = true
-        } else if (currentScrollPos >= 230 && checkScroll) {
+        } else if (currentScrollPos >= 70 && checkScroll) {
           checkScroll = false
           setIsNavbarShowBg(true)
         }
@@ -144,7 +144,8 @@ export function Navbar() {
             exact
             to="/"
             activeClassName={styles.active}
-            className={styles.navlink}
+            className={styles.navlinkMobile}
+            onClick={() => setIsNavbarOpen(false)}
           >
             HOME
           </NavLink>
@@ -154,7 +155,8 @@ export function Navbar() {
           <NavLink
             to="/menu"
             activeClassName={styles.active}
-            className={styles.navlink}
+            className={styles.navlinkMobile}
+            onClick={() => setIsNavbarOpen(false)}
           >
             MENU
           </NavLink>
@@ -164,7 +166,8 @@ export function Navbar() {
           <NavLink
             to="/about"
             activeClassName={styles.active}
-            className={styles.navlink}
+            className={styles.navlinkMobile}
+            onClick={() => setIsNavbarOpen(false)}
           >
             ABOUT
           </NavLink>
@@ -174,7 +177,8 @@ export function Navbar() {
           <NavLink
             to="/gallery"
             activeClassName={styles.active}
-            className={styles.navlink}
+            className={styles.navlinkMobile}
+            onClick={() => setIsNavbarOpen(false)}
           >
             GALLERY
           </NavLink>
@@ -184,7 +188,8 @@ export function Navbar() {
           <NavLink
             to="/cart"
             activeClassName={styles.active}
-            className={css(styles.navlink)}
+            className={css(styles.navlinkMobile)}
+            onClick={() => setIsNavbarOpen(false)}
           >
             CART
             <IoCartOutline size={24} className={styles.cartInOverlay} />
