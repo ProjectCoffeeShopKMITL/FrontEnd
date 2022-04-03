@@ -3,11 +3,18 @@ import { NavLink } from 'react-router-dom'
 import styles from './Navbar.module.css'
 import css from 'classnames'
 
+import { Popover, Row, Col, Divider } from 'antd'
 import { IoCartOutline } from 'react-icons/io5'
+import { CgClose } from 'react-icons/cg'
 import logo from '../../picture/logocoffee.png'
 import { useNavbarContext } from '../../context/NavbarContext'
+import { useCartContext } from '../../context/CartContext'
+
+import img17 from '../../picture/img17.jpeg'
 
 export function Navbar() {
+  const { cartList } = useCartContext()
+
   const { isNavbarOpen, setIsNavbarOpen, isNavbarShowBg, setIsNavbarShowBg } =
     useNavbarContext()
 
@@ -59,8 +66,8 @@ export function Navbar() {
         </li>
       </div>
 
-      <ul className={styles.text}>
-        <li className={styles.link}>
+      <div className={styles.text}>
+        <div className={styles.link}>
           <NavLink
             exact
             to="/"
@@ -69,9 +76,9 @@ export function Navbar() {
           >
             HOME
           </NavLink>
-        </li>
+        </div>
 
-        <li className={styles.link}>
+        <div className={styles.link}>
           <NavLink
             to="/menu"
             activeClassName={styles.active}
@@ -79,9 +86,9 @@ export function Navbar() {
           >
             MENU
           </NavLink>
-        </li>
+        </div>
 
-        <li className={styles.link}>
+        <div className={styles.link}>
           <NavLink
             to="/about"
             activeClassName={styles.active}
@@ -89,9 +96,9 @@ export function Navbar() {
           >
             ABOUT
           </NavLink>
-        </li>
+        </div>
 
-        <li className={styles.link}>
+        <div className={styles.link}>
           <NavLink
             to="/gallery"
             activeClassName={styles.active}
@@ -99,28 +106,66 @@ export function Navbar() {
           >
             GALLERY
           </NavLink>
-        </li>
+        </div>
         <div className={styles.divider} />
 
-        <li className={css(styles.link, styles.cart)}>
-          <NavLink
-            to="/cart"
-            activeClassName={styles.active}
-            className={css(styles.navlink)}
+        <div className={css(styles.link, styles.cart)}>
+          <Popover
+            title={JSON.stringify(cartList)}
+            placement="bottomRight"
+            content={cartList.map((cart) => (
+              <Row className={styles.popover}>
+                {/* <Col span={8}>
+                  <img src={img17} />
+                </Col> */}
+                <Col span={16}>
+                  <Row className={styles.popoverRow1}>
+                    {cart.name}
+                    <CgClose size={20} />
+                  </Row>
+                  <Row>
+                    <span>Sweet:</span>
+                    {cart.sweet}
+                    <span>Quantity:</span>
+                    {cart.quantity}
+                  </Row>
+                  <Row className={styles.price}>
+                    {cart.price}
+                    <span>Bath</span>
+                  </Row>
+                  <Row>
+                    <Divider />
+                  </Row>
+                  <Row>
+                    <Col>Total:</Col>
+                    <Col>{cart.totalPrice}</Col>
+                  </Row>
+                </Col>
+              </Row>
+            ))}
+            trigger="hover"
+            arrowPointAtCenter
           >
-            <IoCartOutline size={24} />
-          </NavLink>
+            <NavLink
+              to="/cart"
+              activeClassName={styles.active}
+              className={css(styles.navlink)}
+            >
+              <IoCartOutline size={24} />
+            </NavLink>
+          </Popover>
+
           {/* <div activeClassName={styles.active} className={css(styles.navlink)}>
             <IoCartOutline size={24} />
           </div> */}
-        </li>
+        </div>
 
         <li className={styles.link}>
           <div activeClassName={styles.activeLogin} className={styles.login}>
             LOGIN
           </div>
         </li>
-      </ul>
+      </div>
 
       {/* hambergur */}
       <div

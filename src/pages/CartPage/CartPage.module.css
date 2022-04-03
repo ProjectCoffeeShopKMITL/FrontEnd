@@ -1,0 +1,51 @@
+.coverHeader {
+    background: #202020c7;
+    height: 300px;
+    width: 100%;
+}
+.imgHeader {
+    background-image: url(../../picture/img15.jpeg);
+    height: 300px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    z-index: -1;
+}
+.textHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-family: "Libre Baskerville";
+    height: 300px;
+    width: 100%;
+    color: var(--white);
+    position: absolute;
+    z-index: 1;
+}
+
+.coverTable {
+    padding: 4rem;
+}
+.detail {
+    /* background: #000; */
+    display: flex;
+    justify-content: flex-start;
+}
+.closeButton {
+    cursor: pointer;
+    color: var(--brownlight);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.closeButton:hover {
+    transition: 0.5s;
+    background: var(--brownlight);
+    color: var(--white);
+}

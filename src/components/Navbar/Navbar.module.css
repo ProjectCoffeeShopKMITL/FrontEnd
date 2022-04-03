@@ -12,9 +12,13 @@
   position: fixed;
   z-index: 2;
   font-family: "Libre Baskerville";
-  transition: 0.4s;
+  /* transition: 0.4s; */
   background: rgba(0, 0, 0, 0);
 }
+
+/* ul :global(ul) {
+  margin-bottom: 0;
+} */
 
 .shopName {
   width: 220px;
@@ -98,6 +102,20 @@
 .activeLogin {
   color: var(--brownlight);
   border: 1px solid var(--brownlight);
+}
+
+.popover {
+  font-family: "Libre Baskerville";
+  border-top: 4px solid var(--brownlight);
+  width: 400px;
+}
+.popoverRow1 {
+  display: flex;
+  justify-content: space-around;
+}
+.price {
+  font-size: 20px;
+  color: var(--brownlight);
 }
 
 .hambergurButton {

@@ -141,14 +141,32 @@
     height: 1px;
     margin-bottom: 1.6rem;
 }
+
+/* .coverRow2 {
+    background: #ff9b9b;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+} */
 .inputNumber {
+    /* background: rgb(255, 78, 78); */
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    /* align-items: center; */
+}
+.countPrice {
+    width: 66px;
+    height: 32px;
+    /* background: rgb(255, 174, 174); */
+    border-bottom: 1.5px solid var(--brownlight);
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
 .addToCartButtonDrawer {
+    cursor: pointer;
     background: var(--brownlight);
     width: 100%;
     height: 50px;

@@ -26,8 +26,6 @@ export function MenuPage() {
   const [filterBy, setFilterBy] = useState('')
   const [sortBy, setSortBy] = useState('recommend')
 
-  const { cartList } = useCartContext()
-
   const fetchMenus = async () => {
     try {
       const { data } = await axios.get(process.env.REACT_APP_BACKEND + '/menus')
@@ -131,8 +129,6 @@ export function MenuPage() {
               <Menu data={eachData} key={eachData.id} />
             ))}
           </div>
-
-          {JSON.stringify(cartList, null, 2)}
         </div>
       </div>
     </div>

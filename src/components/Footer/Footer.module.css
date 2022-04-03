@@ -24,7 +24,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    height: 400px;
+    /* height: 400px; */
     width: 1000px;
     /* position: absolute; */
     /* background: rgb(255, 136, 136); */
@@ -32,7 +32,7 @@
 .openHour {
     width: 300px;
     height: 300px;
-    margin-bottom: 3.2rem;
+    /* margin-bottom: 3.2rem; */
     /* background: rgb(255, 161, 161); */
 }
 .inOpenHour {
@@ -46,7 +46,7 @@
     height: 100%;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.5rem;
+    /* margin-bottom: 0.5rem; */
 }
 .textInOpenHour {
     width: 100px;
@@ -72,7 +72,7 @@
 .contact {
     width: 300px;
     height: 300px;
-    margin-bottom: 3.2rem;
+    /* margin-bottom: 3.2rem; */
     /* background: rgb(255, 161, 161); */
 }
 .inContact {
@@ -85,7 +85,7 @@
 .coverInContact {
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
+    /* margin-bottom: 0.5rem; */
 }
 .icon {
     width: 50px;
@@ -95,7 +95,7 @@
 .location {
     width: 300px;
     height: 300px;
-    margin-bottom: 3.2rem;
+    /* margin-bottom: 3.2rem; */
 }
 .coverInLocation {
     padding-left: 0.75rem;
@@ -122,9 +122,6 @@
     }
     .footerContainer {
         flex-direction: column;
-        max-width: 100vw;
-        min-height: 100vh;
-        /* height: 100vh; */
     }
     .imgCover {
         background-image: url(../../picture/footer.jpeg);

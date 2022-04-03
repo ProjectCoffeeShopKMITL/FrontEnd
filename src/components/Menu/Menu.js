@@ -16,6 +16,7 @@ export function Menu({ data }) {
   // move to next page
   const history = useHistory()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const [totalPrice, setTotalPrice] = useState(data.price)
   const [form] = Form.useForm()
 
   const { setCartList } = useCartContext()
@@ -77,12 +78,21 @@ export function Menu({ data }) {
         maskClosable={false}
         keyboard={false}
       >
+        {console.log(
+          form.getFieldsValue().quantity,
+          data.price,
+          data.price * form.getFieldsValue().quantity
+        )}
+
         <Form
+          onFieldsChange={() => {
+            setTotalPrice(data.price * form.getFieldsValue().quantity)
+          }}
           form={form}
           onFinish={(value) => {
             setCartList((oldCartList) => [
               ...oldCartList,
-              { ...data, ...value },
+              { ...data, ...value, totalPrice },
             ])
             handleClose()
             console.log(value)
@@ -115,17 +125,20 @@ export function Menu({ data }) {
           </div>
           <div className={styles.line} />
           <div className={styles.inputNumber}>
-            <InputNumber
-              min={1}
-              max={10}
-              defaultValue={1}
-              style={{ width: '70px' }}
-            />
+            <Form.Item name="quantity" initialValue={1}>
+              <InputNumber min={1} max={10} style={{ width: '70px' }} />
+            </Form.Item>
+            <div className={styles.countPrice}>
+              {totalPrice}
+              <div>฿</div>
+            </div>
           </div>
 
           <div>
             <div className={styles.header}>Note</div>
-            <TextArea showCount maxLength={100} style={{ height: 120 }} />
+            <Form.Item name="note">
+              <TextArea showCount maxLength={100} style={{ height: 120 }} />
+            </Form.Item>
           </div>
 
           <div
