@@ -37,16 +37,18 @@ export function MenuPage() {
   }
 
   const onSearch = () => {
+    console.log(menuList)
+
     const result = menuList
-      .filter((menu) => (filterBy ? menu.menu_type === filterBy : true)) //filter type
+      .filter((menu) => (filterBy ? menu.type === filterBy : true)) //filter type
       .filter((menu) =>
-        menu.menu_name.toLowerCase().includes(searchText.toLowerCase())
+        menu.name.toLowerCase().includes(searchText.toLowerCase())
       )
       .sort((a, b) => {
         //a-b น้อยไปมาก
         switch (sortBy) {
           case 'recommend':
-            return b.isRecommend - a.isRecommend
+            return b.is_Recommend - a.is_Recommend
           case 'popular':
             return b.rate - a.rate
           case 'new':
@@ -94,7 +96,7 @@ export function MenuPage() {
               value={searchText}
             />
             <div className={styles.coverFilterAndSort}>
-              <div>
+              <div className={styles.coverInFunction}>
                 <span className={styles.text}>Filter by</span>
                 <Select
                   className={styles.filterFunction}
@@ -108,7 +110,7 @@ export function MenuPage() {
                 </Select>
               </div>
 
-              <div>
+              <div className={styles.coverInFunction}>
                 <span className={styles.text}>Sort by</span>
                 <Select
                   className={styles.sortFunction}

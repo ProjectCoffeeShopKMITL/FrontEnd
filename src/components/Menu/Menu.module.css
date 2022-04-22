@@ -43,6 +43,7 @@
     padding: 0.5rem;
     width: 100%;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     /* justify-content: space-between; */
 }
@@ -50,10 +51,20 @@
 .name {
     font-size: 18px;
 }
+.coverPriceSaleTo {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
 .price {
     color: var(--brownlight);
-    font-size: 14px;
-    font-style: italic;
+    font-size: 16px;
+}
+.priceSaleTo {
+    margin-right: 6px;
+    font-size: 12px;
+    color: var(--gray4);
+    text-decoration: line-through;
 }
 
 .rateCustom :global(.ant-rate) {
@@ -148,13 +159,29 @@
     display: flex;
     justify-content: space-between;
 } */
-.inputNumber {
-    /* background: rgb(255, 78, 78); */
+.coverQuantityPrice {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    /* align-items: center; */
+    margin-bottom: 1rem;
 }
+.coverInQuanPri {
+    /* background: rgb(255, 126, 126); */
+    display: flex;
+    justify-content: center;
+}
+
+.inputNumberText {
+    /* background: rgb(255, 92, 92); */
+    display: flex;
+    padding-right: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 100;
+    color: var(--gray3);
+}
+
 .countPrice {
     width: 66px;
     height: 32px;
@@ -176,6 +203,7 @@
     font-size: 16px;
     color: var(--white);
     border-radius: 2px;
+    margin-top: 4rem;
 }
 
 @media only screen and (max-width: 960px) {

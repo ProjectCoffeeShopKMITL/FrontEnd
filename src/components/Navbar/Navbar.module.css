@@ -98,27 +98,170 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--white);
+  cursor: pointer;
 }
 .activeLogin {
   color: var(--brownlight);
   border: 1px solid var(--brownlight);
 }
 
-.popover {
+.coverLoginModal {
   font-family: "Libre Baskerville";
-  border-top: 4px solid var(--brownlight);
-  width: 400px;
-}
-.popoverRow1 {
-  display: flex;
-  justify-content: space-around;
-}
-.price {
-  font-size: 20px;
-  color: var(--brownlight);
 }
 
-.hambergurButton {
+.iconLogin {
+  /* color: var(--black); */
+  margin-right: 4px;
+  font-size: 16px;
+}
+:global(.ant-form-item-explain-error) {
+  font-size: 10px;
+}
+
+.coverUserNameInput {
+  margin: 2rem 0 1rem 0;
+}
+
+.loginAndRegisButton:hover {
+  letter-spacing: 3.6px;
+}
+
+.loginAndRegisButton {
+  width: 100%;
+  transition: 0.5s;
+  background: var(--brownlight);
+  border-radius: 2px;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  color: var(--white);
+  margin-top: 2rem;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.coverFnameLastname {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.popover {
+  font-family: "Libre Baskerville";
+  /* border-top: 4px solid var(--brownlight); */
+  width: 260px;
+  padding-top: 1rem;
+  /* background: rgb(255, 151, 151); */
+}
+
+.borderTop {
+  background: var(--brownlight);
+  width: 260px;
+  margin-left: -16px;
+  height: 6px;
+  margin-top: -12px;
+}
+.scroll {
+  /* max-height: 280px; */
+  max-height: 190px;
+  height: 100%;
+  overflow: auto;
+}
+
+/* .scroll::-webkit-scrollbar {
+  width: 10px;
+} */
+.scroll::-webkit-scrollbar {
+  width: 8px;
+  margin: 1rem;
+}
+
+.scroll::-webkit-scrollbar-track {
+  /* background-color: #e4e4e4;
+  border-radius: 100px; */
+  display: none;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: var(--gray5);
+  border-radius: 2px;
+  /* background-image: linear-gradient(180deg, var(--brownlight) 0%, var(--white) 99%); */
+}
+
+.popoverRow1 {
+  /* background: rgb(146, 255, 168); */
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.popoverRow2 {
+  /* background: rgb(48, 100, 255); */
+  margin: 0.1rem 0 0.5rem 0;
+  font-size: 12px;
+  color: var(--gray3);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+.italic {
+  margin-right: 1rem;
+}
+.price {
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+  /* color: var(--brownlight); */
+}
+.line {
+  background: var(--gray5);
+  height: 1px;
+  /* margin: 0.5rem 0; */
+}
+.totalPrice {
+  font-size: 18px;
+  color: var(--brownlight);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+.popoverButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+.button:hover {
+  color: var(--white);
+  background: var(--brownlight);
+  letter-spacing: 4px;
+}
+.button {
+  transition: 0.5s;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--brownlight);
+  color: var(--white);
+  width: 100%;
+  padding: 0.5rem 0;
+  border-radius: 2px;
+  margin: 0.5rem 0;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+.activeButtonViewCart {
+  pointer-events: none;
+  background: var(--gray4);
+  color: var(--white);
+}
+
+.hamburgerButton {
   width: 24px;
   height: 24px;
   display: none;
@@ -126,7 +269,7 @@
   justify-content: space-between;
 }
 
-.hambergurButton div {
+.hamburgerButton div {
   width: 100%;
   height: 4px;
   background: var(--white);
@@ -210,7 +353,7 @@
   .loginMobile {
     display: flex;
   }
-  .hambergurButton {
+  .hamburgerButton {
     display: flex;
   }
 }

@@ -1,97 +1,33 @@
+import { useEffect } from 'react'
+
 import styles from './CartPage.module.css'
 import css from 'classnames'
+import _ from 'lodash'
 
-import { Table, Form, InputNumber, Input, Select } from 'antd'
+import img17 from '../../picture/img17.jpeg'
+
+import { Link } from 'react-router-dom'
+
+import { Form, InputNumber, Input, Select, Col, Row } from 'antd'
 import { CgClose } from 'react-icons/cg'
 
 import { useCartContext } from '../../context/CartContext'
+
+const sweetOptions = [
+  { label: '0%', value: 0 },
+  { label: '25%', value: 25 },
+  { label: '50%', value: 50 },
+  { label: '75%', value: 75 },
+  { label: '100%', value: 100 },
+]
 
 export function CartPage() {
   const { cartList, setCartList } = useCartContext()
   const [form] = Form.useForm()
 
-  const columns = [
-    {
-      title: 'Product',
-      render: ({ name, listAction, ...rest }) => (
-        <div className={styles.detail}>
-          <Form.Item name={[name, 'name']} noStyle {...rest}>
-            <Input bordered={false} style={{ pointerEvents: 'none' }} />
-          </Form.Item>
-        </div>
-      ),
-      key: 'product',
-    },
-    {
-      title: 'Price',
-      width: '10%',
-      render: ({ name, listAction, ...rest }) => (
-        <div className={styles.inputNumber}>
-          <Form.Item name={[name, 'price']} noStyle {...rest}>
-            <Input bordered={false} />
-          </Form.Item>
-        </div>
-      ),
-      key: 'price',
-    },
-    {
-      title: 'Quantity',
-      render: ({ name, listAction, ...rest }) => (
-        <div className={styles.inputNumber}>
-          <Form.Item name={[name, 'quantity']} noStyle {...rest}>
-            <InputNumber min={1} max={10} style={{ width: '70px' }} />
-          </Form.Item>
-        </div>
-      ),
-      key: 'name',
-    },
-    {
-      title: 'Sweet',
-      width: '10%',
-      render: ({ name, listAction, ...rest }) => (
-        <div className={styles.inputNumber}>
-          <Form.Item name={[name, 'sweet']} noStyle {...rest}>
-            {/* <Input bordered={false} /> */}
-            <Select
-              options={[
-                { value: 0, label: '0%' },
-                { value: 25, label: '25%' },
-                { value: 50, label: '50%' },
-                { value: 75, label: '75%' },
-                { value: 100, label: '100%' },
-              ]}
-            />
-          </Form.Item>
-        </div>
-      ),
-      key: 'sweet',
-    },
-    {
-      title: 'Total',
-      dataIndex: 'total',
-      key: 'total',
-    },
-    {
-      title: 'Note',
-      dataIndex: 'note',
-      key: 'note',
-    },
-    {
-      // title: 'close',
-      render: ({ name, listAction, ...rest }) => (
-        // render: (a) => (
-        <div
-          className={styles.inputNumber}
-          onClick={() => listAction.remove(name)}
-        >
-          <div className={styles.closeButton}>
-            <CgClose size={20} />
-          </div>
-        </div>
-      ),
-      key: 'close',
-    },
-  ]
+  useEffect(() => {
+    form.setFieldsValue({ cartList })
+  }, [cartList])
 
   return (
     <div>
@@ -99,38 +35,149 @@ export function CartPage() {
         <div className={styles.imgHeader}></div>
         <h4 className={styles.textHeader}>CART</h4>
       </div>
-      <div className={styles.coverTable}>
+      <div className={styles.cover}>
         <Form
           form={form}
           onFieldsChange={() => {
             const formValue = form.getFieldsValue()
-            setCartList(formValue.cartList)
+
+            const keepTotalPrice = formValue.cartList.map((cart) => ({
+              ...cart,
+              totalPrice: cart.price * cart.quantity,
+            }))
+            setCartList(keepTotalPrice)
+            form.setFieldsValue({ cartList: keepTotalPrice })
           }}
         >
+          {/* <div className={styles.coverTitle}>
+            <Row>
+              <Col flex={1}>Product</Col>
+              <Col flex={1}>Price</Col>
+              <Col flex={1}>Quantity</Col>
+              <Col flex={1}>Sweet</Col>
+              <Col flex={1}>Total</Col>
+              <Col flex={1}>Note</Col>
+            </Row>
+          </div> */}
           <Form.List name="cartList" initialValue={cartList}>
             {(fields, listAction) => (
-              <>
-                <Table
-                  dataSource={fields.map((field) => ({ ...field, listAction }))}
-                  columns={columns}
-                  pagination={false}
-                />
-                {/* <button
-                  onClick={() =>
-                    listAction.add({
-                      id: 1,
-                      name: 'latte mockup',
-                      price: 34,
-                      sweet: 50,
-                      quantity: 2,
-                    })
-                  }
-                >
-                  add
-                </button> */}
-              </>
+              <div className={styles.coverMenuList}>
+                {/* {JSON.stringify(fields)} */}
+                {fields.map(({ name, ...rest }) => (
+                  <div className={styles.coverMenu}>
+                    <img src={img17} className={styles.img} />
+
+                    <div className={styles.coverMenuDetail}>
+                      <div>
+                        <div className={styles.detail}>
+                          <div className={styles.title}>name: </div>
+                          <Form.Item name={[name, 'name']} {...rest} noStyle>
+                            <Input
+                              bordered={false}
+                              style={{ pointerEvents: 'none', width: '100%' }}
+                            />
+                          </Form.Item>
+                        </div>
+
+                        <div className={styles.detail}>
+                          <div className={styles.title}>sweet: </div>
+                          <div className={styles.sweet}>
+                            <Form.Item name={[name, 'sweet']} {...rest} noStyle>
+                              <Select
+                                options={sweetOptions}
+                                style={{ width: '80px' }}
+                              />
+                            </Form.Item>
+                          </div>
+                        </div>
+                        <div className={styles.detail}>
+                          <div className={styles.title}>quantity: </div>
+                          <div className={styles.quantity}>
+                            <Form.Item
+                              name={[name, 'quantity']}
+                              {...rest}
+                              noStyle
+                            >
+                              <InputNumber
+                                min={1}
+                                max={10}
+                                style={{ width: '80px' }}
+                              />
+                            </Form.Item>
+                          </div>
+                        </div>
+                        <div className={styles.detail}>
+                          <div className={styles.title}>totalprice: </div>
+                          <div className={styles.totalPrice}>
+                            <Form.Item
+                              name={[name, 'totalPrice']}
+                              {...rest}
+                              noStyle
+                            >
+                              <Input
+                                bordered={false}
+                                style={{ pointerEvents: 'none', width: '60px' }}
+                              />
+                            </Form.Item>
+                            <div className={styles.textBaht}>Baht</div>
+                          </div>
+                        </div>
+                        <div className={css(styles.detail, styles.note)}>
+                          <div className={styles.title}>
+                            <i>note: </i>{' '}
+                          </div>
+                          <Form.Item name={[name, 'note']} {...rest} noStyle>
+                            <Input bordered={false} />
+                          </Form.Item>
+                        </div>
+                      </div>
+
+                      <CgClose
+                        size={20}
+                        onClick={() => listAction.remove(name)}
+                        className={styles.closeButton}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
             )}
           </Form.List>
+          {/* <div className={styles.coverCoupon}>
+            <div className={styles.coverInputCoupon}>
+              <Input placeholder="Coupon Code" style={{ height: '36px' }} />
+              <i>* join us for special offer.</i>
+            </div>
+            <div className={styles.couponButton}>APPLY COUPON</div>
+          </div> */}
+          {/* <div>{JSON.stringify(cartList)}</div> */}
+          <div>
+            <div className={styles.textHeaderCartTotal}>CART TOTAL</div>
+            <div className={styles.detailCartTotal}>
+              <span>
+                SUBTOTAL : &nbsp;&nbsp;&nbsp;&nbsp;
+                {_.sumBy(cartList, 'totalPrice')}&nbsp;&nbsp;Baht
+              </span>
+              {/* <span>
+                DISCOUNT : &nbsp;&nbsp;&nbsp;
+                {_.sumBy(cartList, (c) => c.price - c.sale_to)}&nbsp;&nbsp;Baht
+              </span> */}
+              <span>
+                SHIPPING : &nbsp;&nbsp;&nbsp;&nbsp;{cartList.length ? 20 : 0}
+                &nbsp;&nbsp;Baht
+              </span>
+              <span>
+                TOTAL : &nbsp;&nbsp;&nbsp;&nbsp;
+                {_.sumBy(cartList, 'totalPrice') + (cartList.length ? 20 : 0)}
+                &nbsp;Baht
+              </span>
+            </div>
+          </div>
+          <div className={styles.coverCheckoutButton}>
+            <Link to="/checkout" className={styles.checkoutButton}>
+              CHECK OUT
+            </Link>
+          </div>
         </Form>
       </div>
       {/* <button onClick={() => console.log(form.getFieldsValue())}>test</button> */}

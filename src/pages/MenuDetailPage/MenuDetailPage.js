@@ -113,7 +113,7 @@ export function MenuDetailPage() {
               </div>
               <span className={styles.review}>(10 review)</span>
             </div>
-            <div className={styles.price}>{40} Bath</div>
+            <div className={styles.price}>{40} Baht</div>
             <p className={styles.text}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
               sem nisl, fringilla at volutpat ac, tristique sit amet lorem.
