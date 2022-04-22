@@ -141,7 +141,7 @@
     border: 0.5px solid var(--gray5);
     padding: 0.4rem 2.8rem;
     border-radius: 2px;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .coverCartTotal {

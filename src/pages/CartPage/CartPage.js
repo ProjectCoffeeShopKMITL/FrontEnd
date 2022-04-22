@@ -30,7 +30,7 @@ export function CartPage() {
   }, [cartList])
 
   return (
-    <div>
+    <div style={{ minHeight: '60vh' }}>
       <div className={styles.coverHeader}>
         <div className={styles.imgHeader}></div>
         <h4 className={styles.textHeader}>CART</h4>
@@ -173,11 +173,13 @@ export function CartPage() {
               </span>
             </div>
           </div>
-          <div className={styles.coverCheckoutButton}>
-            <Link to="/checkout" className={styles.checkoutButton}>
-              CHECK OUT
-            </Link>
-          </div>
+          {cartList.length ? (
+            <div className={styles.coverCheckoutButton}>
+              <Link to="/checkout" className={styles.checkoutButton}>
+                CHECK OUT
+              </Link>
+            </div>
+          ) : null}
         </Form>
       </div>
       {/* <button onClick={() => console.log(form.getFieldsValue())}>test</button> */}

@@ -51,12 +51,23 @@ export function CheckoutPage() {
 
   const handleOrder = async (formValue) => {
     try {
-      await axios.post(process.env.REACT_APP_BACKEND + '/order', {
-        ...formValue,
-        subtotal: _.sumBy(cartList, 'totalPrice'),
-        subtotal: _.sumBy(cartList, 'totalPrice'),
-      })
-      // notification.success({ message: 'Create Account success' })
+      const { data } = await axios.post(
+        process.env.REACT_APP_BACKEND + '/order',
+        {
+          ...formValue,
+          subtotal: _.sumBy(cartList, 'totalPrice'),
+          shipping: 20,
+          discount: _.sumBy(
+            cartList,
+            (c) => parseFloat(c.price) - parseFloat(c.sale_to)
+          ),
+          total: _.sumBy(cartList, 'totalPrice') + 20,
+          menu_array: cartList.map((c) => [String(c.id), String(c.quantity)]),
+        }
+      )
+      setCartList([])
+      history.push(`/status/${data.id}`)
+      notification.success({ message: 'Order Success' })
     } catch (error) {
       notification.error({ message: 'Order Failed' })
       console.log(error)
@@ -89,7 +100,6 @@ export function CheckoutPage() {
             handleOrder(v)
             const formValue = orderForm.getFieldsValue()
             saveAddressForGuest(formValue)
-            history.push('/status')
           }}
         >
           {/* <Form form={orderForm} > */}
@@ -217,11 +227,12 @@ export function CheckoutPage() {
         <div>
           <div className={styles.section}>Payment</div>
           <div className={styles.coverPayment}>
-            <div className={styles.payment}>PromptPay</div>
+            {/* <div className={styles.payment}>PromptPay</div> */}
             <div className={styles.payment}>Cash on delivery</div>
-            <div className={styles.payment}>Bank Transfer</div>
+            {/* <div className={styles.payment}>Bank Transfer</div> */}
           </div>
         </div>
+        {/* {JSON.stringify(cartList)} */}
         <Divider style={{ borderWidth: 1, borderColor: '#e0e0e0' }} />
         <Row className={styles.coverCartTotal}>
           <Col className={styles.coverTitleCartTotal}>
@@ -232,11 +243,13 @@ export function CheckoutPage() {
           </Col>
           <Col className={styles.coverDetailCartTotal}>
             <Row>{_.sumBy(cartList, 'totalPrice')} Baht</Row>
-            <Row>20 Baht</Row>
+            <Row>{cartList.length ? 20 : 0} Baht</Row>
             {/* <Row className={styles.line}></Row> */}
             <Row className={styles.total}>
               {' '}
-              {_.sumBy(cartList, 'totalPrice') + 20} Baht
+              {_.sumBy(cartList, 'totalPrice') +
+                (cartList.length ? 20 : 0)}{' '}
+              Baht
             </Row>
           </Col>
         </Row>

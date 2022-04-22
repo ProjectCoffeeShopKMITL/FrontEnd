@@ -12,6 +12,7 @@ import { CartPage } from './pages/CartPage/CartPage'
 import { CheckoutPage } from './pages/CheckoutPage/CheckoutPage'
 import { StatusPage } from './pages/StatusPage/StatusPage'
 import { MemberPage } from './pages/MemberPage/MemberPage'
+import { AllStatusPage } from './pages/AllStatusPage/AllStatusPage'
 
 import { useUserContext } from './context/UserContext'
 
@@ -30,7 +31,8 @@ function App() {
         <Route path="/gallery" component={GalleryPage} />
         <Route path="/cart" component={CartPage} />
         <Route path="/checkout" component={CheckoutPage} />
-        <Route path="/status" component={StatusPage} />
+        <Route path="/AllStatus" component={AllStatusPage} />
+        <Route path="/status/:order_id" component={StatusPage} />
         <Route path="/member" component={MemberPage} />
       </Switch>
       <Footer />

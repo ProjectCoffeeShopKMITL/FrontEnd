@@ -1,38 +1,55 @@
 import styles from './StatusPage.module.css'
-import { Fragment } from 'react'
-import { useHistory } from 'react-router-dom'
+import { Fragment, useEffect, useState } from 'react'
+import { useHistory, useParams } from 'react-router-dom'
 
 import _ from 'lodash'
+import axios from 'axios'
 
 import img17 from '../../picture/img17.jpeg'
 
 import { Form, Steps, Input, Divider, Row, Col } from 'antd'
-import { BsArrowLeft } from 'react-icons/bs'
+import { FaHome } from 'react-icons/fa'
 import { AiOutlineStar } from 'react-icons/ai'
 
-import { useCartContext } from '../../context/CartContext'
-// import { nanoid } from 'nanoid'
-
 export function StatusPage() {
-  const { cartList, setCartList } = useCartContext()
+  const [cartList, setCartList] = useState([])
+  const [orderId, setOrderId] = useState()
+
   const [form] = Form.useForm()
 
   const { Step } = Steps
 
   const history = useHistory()
+  const { order_id } = useParams()
+
+  const fetchOrder = async () => {
+    try {
+      const { data } = await axios.get(
+        process.env.REACT_APP_BACKEND + `/order/${order_id}`
+      )
+      console.log(data)
+      setCartList(data[0].menu_array)
+      setOrderId(data[0].id)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  useEffect(() => {
+    fetchOrder()
+  }, [])
 
   return (
     <div>
       <div className={styles.coverHeader}>
         <div className={styles.coverArrowBack}>
-          <BsArrowLeft
+          <FaHome
             className={styles.arrowBack}
             onClick={() => {
-              history.goBack()
+              history.push('/AllStatus')
             }}
           />
         </div>
-        <div className={styles.textHeader}>STATUS</div>
+        <div className={styles.textHeader}>STATUS </div>
       </div>
       <div className={styles.cover}>
         <Form form={form}>
@@ -54,12 +71,13 @@ export function StatusPage() {
             <div className={styles.totalPrice}>
               <div>Purchased Items {_.sumBy(cartList, 'quantity')}</div>
               <div className={styles.price}>
-                {_.sumBy(cartList, 'totalPrice')}&nbsp;&nbsp; Baht
+                {_.sumBy(cartList, (c) => parseFloat(c.sale_to) * c.quantity)}
+                &nbsp;&nbsp; Baht
               </div>
             </div>
             <div className={styles.orderIDAndDetail}>
-              <div className={styles.orderID}>order #</div>
-              <div className={styles.drawerDetail}>Detail</div>
+              <div className={styles.orderID}>order # {orderId}</div>
+              {/* <div className={styles.drawerDetail}>Detail</div> */}
             </div>
           </div>
           <div className={styles.coverMenuList}>
@@ -76,12 +94,14 @@ export function StatusPage() {
                         </Col>
                         <Col>{cart.quantity}</Col>
                       </Row>
-                      <Row className={styles.sweet}>
+                      {/* <Row className={styles.sweet}>
                         <Col>sweet&nbsp;&nbsp;</Col>
                         <Col>{cart.sweet}</Col>
-                      </Row>
+                      </Row> */}
                       <Row className={styles.priceMenuList}>
-                        <Col>{cart.totalPrice}&nbsp;&nbsp;</Col>
+                        <Col>
+                          {parseFloat(cart.sale_to) * cart.quantity}&nbsp;&nbsp;
+                        </Col>
                         <Col>Baht</Col>
                       </Row>
                       <Row className={styles.note}>

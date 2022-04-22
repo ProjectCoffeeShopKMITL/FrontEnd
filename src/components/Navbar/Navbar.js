@@ -115,7 +115,7 @@ export function Navbar() {
   }, [isNavbarOpen])
 
   if (location.pathname === '/checkout') return null
-  if (location.pathname === '/status') return null
+  if (location.pathname.includes('/status')) return null
 
   return (
     <nav
@@ -254,7 +254,7 @@ export function Navbar() {
                     >
                       VIEW CART
                     </NavLink>
-                    <NavLink to="/status" className={styles.button}>
+                    <NavLink to="/AllStatus" className={styles.button}>
                       VIEW STATUS
                     </NavLink>
                   </div>
@@ -270,7 +270,7 @@ export function Navbar() {
                     >
                       VIEW CART
                     </NavLink>
-                    <NavLink to="/status" className={styles.button}>
+                    <NavLink to="/AllStatus" className={styles.button}>
                       VIEW STATUS
                     </NavLink>
                   </div>
@@ -432,11 +432,6 @@ export function Navbar() {
                         required: true,
                         message: 'please input your password',
                       },
-                      {
-                        min: 8,
-                        message:
-                          'please input your password longer than 8 char',
-                      },
                     ]}
                   >
                     <Input.Password
@@ -524,6 +519,12 @@ export function Navbar() {
                         required: true,
                         message: 'please input your Password',
                       },
+                      // {
+                      //   pattern: new RegExp(
+                      //     /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
+                      //   ),
+                      //   message: 'please input strong password ',
+                      // },
                     ]}
                   >
                     <Input.Password placeholder="Password" />
