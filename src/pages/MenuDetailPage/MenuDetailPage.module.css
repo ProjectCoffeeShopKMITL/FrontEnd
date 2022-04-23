@@ -118,18 +118,19 @@
 
 .coverCountAndAdd {
     display: flex;
-    justify-content: start;
+    /* justify-content: start; */
+    /* background: #000; */
+    /* align-items: center; */
 }
-.coverCount {
+/* .coverCount {
     margin-right: 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100px;
     color: var(--black);
-    /* background: #000; */
-}
-.count {
+} */
+/* .count {
     background: rgba(219, 219, 219, 0.726);
     color: var(--black);
     width: 26px;
@@ -138,19 +139,23 @@
     justify-content: center;
     align-items: center;
     border-radius: 2px;
-}
+} */
 
 /* .coverButton:hover {
     transform: scale(1.05);
 } */
-.button:hover {
+/* .button:hover {
     transform: scale(1.05);
+} */
+.button:hover {
+    letter-spacing: 4px;
 }
 .button {
-    transition: 0.2s;
-    /* width: 130px; */
-    width: 150px;
-    height: 30px;
+    padding: 0.8rem 0;
+    transition: 0.5s;
+    width: 250px;
+    /* width: 150px;
+    height: 30px; */
     border-radius: 2px;
     background: var(--brownlight);
     color: var(--white);
@@ -159,6 +164,7 @@
     justify-content: center;
     margin-top: 4px;
     cursor: pointer;
+    letter-spacing: 1px;
 }
 .textButton {
     font-size: 12px;
@@ -172,6 +178,10 @@
     margin-right: 10px;
 }
 
+.commentText {
+    color: var(--black);
+    font-size: 12px;
+}
 .divider :global(.ant-divider-horizontal) {
     display: flex;
     clear: both;
@@ -198,8 +208,7 @@
     /* background: rgb(115, 255, 73); */
     /* max-width: 750px; */
     width: 100%;
-    height: 300px;
-    padding: 1rem;
+    /* padding: 1rem; */
 }
 .containerUserReview {
     /* background: rgb(255, 104, 104); */
@@ -242,4 +251,29 @@
     /* grid-template-columns: repeat(auto-fill, 280px); */
     grid-template-columns: repeat(auto-fill, 200px);
     justify-content: space-between;
+}
+
+@media only screen and (max-width: 960px) {
+    .container {
+        padding: 2rem 1rem;
+    }
+    .coverDetail {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        /* background: #000; */
+    }
+    .carouselContainer {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    .img {
+        width: 100%;
+    }
+    .button {
+        width: 100%;
+    }
+    .menuList {
+        grid-template-columns: repeat(auto-fill, 100%);
+    }
 }

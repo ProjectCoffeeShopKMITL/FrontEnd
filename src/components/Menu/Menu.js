@@ -1,4 +1,5 @@
 import styles from './Menu.module.css'
+import { useState } from 'react'
 
 import { useHistory } from 'react-router-dom'
 import { nanoid } from 'nanoid'
@@ -6,7 +7,6 @@ import { nanoid } from 'nanoid'
 import { Rate, Drawer, Radio, Form, InputNumber, Input } from 'antd'
 import { IoCartOutline } from 'react-icons/io5'
 import { CgClose } from 'react-icons/cg'
-import { useState } from 'react'
 import { useCartContext } from '../../context/CartContext'
 // import { GrCart } from 'react-icons/gr'
 // import { CgShoppingCart } from 'react-icons/cg'
@@ -41,11 +41,11 @@ export function Menu({ data }) {
     <>
       <div
         className={styles.container}
-        onClick={() => history.push(`/menu/${data.id}`)}
+        onClick={() => history.push(`/menu/${data.name}`)}
       >
         <div>
           {/* <img src={data.img} className={styles.img} /> */}
-          <img src={img17} className={styles.img} />
+          <img src={data.img} className={styles.img} />
         </div>
         {data.sale_to !== data.price && <div className={styles.sale}>sale</div>}
 

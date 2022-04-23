@@ -8,7 +8,7 @@ import img17 from '../../picture/img17.jpeg'
 
 import { Link } from 'react-router-dom'
 
-import { Form, Tabs, Input } from 'antd'
+import { Form, Tabs, Input, Avatar, Row, Col, Divider } from 'antd'
 import { FaRegUserCircle } from 'react-icons/fa'
 
 import { useUserContext } from '../../context/UserContext'
@@ -31,41 +31,106 @@ export function MemberPage() {
       </div>
       <div className={styles.cover}>
         <Form form={form}>
-          <div className={styles.profile}>
-            <img src={img17} className={styles.imgProfile} />
-            <Form.Item name="email" label="username">
-              <Input />
-            </Form.Item>
-            <Form.Item name="firstname" label="First name">
-              <Input />
-            </Form.Item>
-            <Form.Item name="lastname" label="Last name">
-              <Input />
-            </Form.Item>
-            <Form.Item name="phone_no" label="Phone number">
-              <Input />
-            </Form.Item>
-          </div>
-          <div className={styles.coverTabs}>
-            <Tabs defaultActiveKey="1" type="card" size={'small'}>
-              <TabPane tab="Account Setting" key="Account Setting">
-                test1
-              </TabPane>
-              <TabPane tab="Membership" key="Membership">
-                test2
-              </TabPane>
-              <TabPane tab="Address" key="Address">
-                test3
-              </TabPane>
-              <TabPane tab="Billing" key="Billing">
-                test4
-              </TabPane>
-            </Tabs>
-          </div>
+          <Tabs defaultActiveKey="1" type="line" size={'large'}>
+            <TabPane tab="Account Setting" key="Account Setting">
+              <div className={styles.profile}>
+                <div className={styles.coverBlockProfile}>
+                  <Avatar
+                    src="https://joeschmoe.io/api/v1/random"
+                    alt="Han Solo"
+                    size={100}
+                  />
+                  <Link to="/" onClick={() => logout()}>
+                    logout
+                  </Link>
+                </div>
+                <div className={styles.coverProfileDetail}>
+                  <Form.Item name="firstname" label="First name">
+                    <Input />
+                  </Form.Item>
+                  <Form.Item name="lastname" label="Last name">
+                    <Input />
+                  </Form.Item>
+                  <Form.Item name="email" label="E-mail">
+                    <Input />
+                  </Form.Item>
+                  <Form.Item name="phone_no" label="Phone number">
+                    <Input />
+                  </Form.Item>
+                </div>
+              </div>
+            </TabPane>
+            // NOTE - mapAddress
+            <TabPane tab="Address" key="Address">
+              <div className={styles.address}>
+                <Row style={{ width: '100%' }}>
+                  <Col span={12}>
+                    <Row justify="start">First name</Row>
+                  </Col>
+                  <Col span={12} style={{ marginTop: '-2px ' }}>
+                    <Row justify="start">
+                      <Form.Item name="firstname" noStyle>
+                        <Input
+                          bordered={false}
+                          style={{ pointerEvents: 'none' }}
+                        />
+                      </Form.Item>
+                    </Row>
+                  </Col>
+                </Row>
+                <Row style={{ width: '100%' }}>
+                  <Col span={12}>
+                    <Row justify="start">Last name</Row>
+                  </Col>
+                  <Col span={12} style={{ marginTop: '-2px ' }}>
+                    <Row justify="start">
+                      <Form.Item name="lastname" noStyle>
+                        <Input
+                          bordered={false}
+                          style={{ pointerEvents: 'none' }}
+                        />
+                      </Form.Item>
+                    </Row>
+                  </Col>
+                </Row>
+                <Row style={{ width: '100%' }}>
+                  <Col span={12}>
+                    <Row justify="start">Phone number</Row>
+                  </Col>
+                  <Col span={12} style={{ marginTop: '-2px ' }}>
+                    <Row justify="start">
+                      <Form.Item name="phone_no" noStyle>
+                        <Input
+                          bordered={false}
+                          style={{ pointerEvents: 'none' }}
+                        />
+                      </Form.Item>
+                    </Row>
+                  </Col>
+                </Row>
+                <Row style={{ width: '100%' }}>
+                  <Col span={12}>
+                    <Row justify="start">Address</Row>
+                  </Col>
+                  <Col span={12} style={{ marginTop: '-2px ' }}>
+                    <Row justify="start">
+                      <Form.Item name="address" noStyle>
+                        <Input
+                          bordered={false}
+                          style={{ pointerEvents: 'none' }}
+                        />
+                      </Form.Item>
+                    </Row>
+                  </Col>
+                </Row>
+                <Divider />
+              </div>
+            </TabPane>
+            <TabPane tab="Billing" key="Billing">
+              test4
+            </TabPane>
+          </Tabs>
         </Form>
-        <Link to="/" onClick={() => logout()}>
-          logout
-        </Link>
       </div>
     </div>
   )

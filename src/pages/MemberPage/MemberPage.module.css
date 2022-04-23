@@ -27,34 +27,66 @@
 }
 
 .cover {
-    padding: 4rem;
-    display: flex;
+    padding: 4rem 32rem;
     font-family: "Libre Baskerville";
 }
 
 .profile {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-top: 2rem;
 }
-.imgProfile {
+.coverBlockProfile {
+    /* background: #000; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 4rem;
+}
+/* .imgProfile {
     width: 140px;
     height: 140px;
     object-fit: cover;
     border-radius: 50%;
+} */
+.coverProfileDetail {
+    /* background: #000; */
+    /* display: flex;
+    flex-direction: column; */
+}
+.allForm {
+    display: flex;
+    /* background: #000; */
 }
 
-.coverTabs {
+.address {
     /* background: #000; */
+    display: flex;
+    margin-top: 1rem;
+    /* justify-content: center; */
+    align-items: flex-start;
+    flex-direction: column;
 }
 
 @media only screen and (max-width: 1024px) {
     .cover {
-        padding: 2rem;
+        padding: 2rem 10rem;
+        justify-content: center;
+        align-items: center;
     }
 }
 @media only screen and (max-width: 960px) {
     .cover {
-        padding: 1rem;
+        padding: 1rem 2rem;
+    }
+    .profile {
+        margin-top: 1rem;
+        width: 100%;
+        flex-direction: column;
+    }
+    .coverBlockProfile {
+        margin-top: 1rem;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
     }
 }

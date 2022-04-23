@@ -25,6 +25,7 @@ import { IoCartOutline } from 'react-icons/io5'
 import { CgClose } from 'react-icons/cg'
 import { BiUser } from 'react-icons/bi'
 import { RiLockPasswordLine } from 'react-icons/ri'
+import { FiLogOut } from 'react-icons/fi'
 import logo from '../../picture/logocoffee.png'
 import { useNavbarContext } from '../../context/NavbarContext'
 import { useCartContext } from '../../context/CartContext'
@@ -38,7 +39,7 @@ export function Navbar() {
   const [isModalVisible, setIsModalVisible] = useState(false)
   const location = useLocation()
   const { cartList, setCartList } = useCartContext()
-  const { isLogin, login } = useUserContext()
+  const { isLogin, login, logout } = useUserContext()
 
   const { isNavbarOpen, setIsNavbarOpen, isNavbarShowBg, setIsNavbarShowBg } =
     useNavbarContext()
@@ -130,7 +131,7 @@ export function Navbar() {
           COFFEE SHOP
         </NavLink>
       </div>
-      <div className={styles.loginMobile}>
+      {/* <div className={styles.loginMobile}>
         <li
           className={styles.link}
           // onClick={showModal}
@@ -140,7 +141,57 @@ export function Navbar() {
             LOGIN
           </div>
         </li>
+      </div> */}
+      <div className={styles.coverUserLoginMobile}>
+        {isLogin ? (
+          <Popover
+            placement="bottomLeft"
+            content={
+              <div className={styles.profileAndLogout}>
+                <Link to="/member" className={styles.profile}>
+                  <FiUser style={{ fontSize: '16px', marginRight: '8px' }} />
+                  Profile
+                </Link>
+                <div className={styles.lineInProfileAndLogout} />
+                <Link to="/" onClick={() => logout()} className={styles.logout}>
+                  <FiLogOut
+                    style={{
+                      fontSize: '12px',
+                      margin: '-2px 8px 0 -4px',
+                    }}
+                  />
+                  Logout
+                </Link>
+              </div>
+            }
+          >
+            <div
+              // to="/member"
+              activeClassName={styles.activeUserLoginMobile}
+              className={styles.userLoginMobile}
+              // className={styles.navlink}
+            >
+              <FiUser
+                style={{
+                  fontSize: '30px',
+                  marginBottom: '-1rem',
+                }}
+              />
+            </div>
+          </Popover>
+        ) : (
+          <li
+            className={styles.link}
+            // onClick={showModal}
+            onClick={showModalAndCloseHamburger}
+          >
+            <div activeClassName={styles.activeLogin} className={styles.login}>
+              LOGIN
+            </div>
+          </li>
+        )}
       </div>
+
       <div className={styles.text}>
         <div className={styles.link}>
           <NavLink
@@ -383,7 +434,7 @@ export function Navbar() {
         </li>
         <li className={styles.link}>
           <NavLink
-            to="/status"
+            to="/AllStatus"
             activeClassName={styles.active}
             className={styles.navlinkMobile}
             onClick={() => setIsNavbarOpen(false)}
@@ -417,6 +468,7 @@ export function Navbar() {
                     ]}
                   >
                     <Input
+                      allowClear
                       placeholder="E-mail"
                       prefix={<BiUser className={styles.iconLogin} />}
                       // bordered={false}
@@ -435,6 +487,7 @@ export function Navbar() {
                     ]}
                   >
                     <Input.Password
+                      allowClear
                       // className={styles.coverInput}
                       placeholder="Password"
                       prefix={
@@ -466,7 +519,7 @@ export function Navbar() {
                       },
                     ]}
                   >
-                    <Input placeholder="First name" />
+                    <Input placeholder="First name" allowClear />
                   </Form.Item>
                   <Form.Item
                     name="lastname"
@@ -477,7 +530,7 @@ export function Navbar() {
                       },
                     ]}
                   >
-                    <Input placeholder="Last name" />
+                    <Input placeholder="Last name" allowClear />
                   </Form.Item>
                 </div>
                 <div>
@@ -491,7 +544,7 @@ export function Navbar() {
                       },
                     ]}
                   >
-                    <Input placeholder="E-mail" />
+                    <Input placeholder="E-mail" allowClear />
                   </Form.Item>
                 </div>
                 <div>
@@ -508,7 +561,11 @@ export function Navbar() {
                       },
                     ]}
                   >
-                    <Input placeholder="Phone number" type="number" />
+                    <Input
+                      placeholder="Phone number"
+                      type="number"
+                      allowClear
+                    />
                   </Form.Item>
                 </div>
                 <div>
@@ -525,9 +582,16 @@ export function Navbar() {
                       //   ),
                       //   message: 'please input strong password ',
                       // },
+                      {
+                        /* Note */
+                      },
+                      // (?=.*\d)          // should contain at least one digit
+                      // (?=.*[a-z])       // should contain at least one lower case
+                      // (?=.*[A-Z])       // should contain at least one upper case
+                      // [a-zA-Z0-9]{8,}   // should contain at least 8 from the mentioned characters
                     ]}
                   >
-                    <Input.Password placeholder="Password" />
+                    <Input.Password placeholder="Password" allowClear />
                   </Form.Item>
                 </div>
                 <Button

@@ -28,6 +28,12 @@
 
 .cover {
     padding: 4rem;
+}
+.noOrder {
+    height: 100%;
+    /* background: #000; */
+}
+.coverContainerOrder {
     display: grid;
     grid-template-columns: repeat(auto-fill, 360px);
     justify-content: space-between;
@@ -44,4 +50,17 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 10px 8px 0px;
 
     /* background: var(--gray3); */
+}
+
+@media only screen and (max-width: 1024px) {
+    .cover {
+        padding: 2rem 5rem;
+        grid-template-columns: repeat(auto-fill, 410px);
+    }
+}
+@media only screen and (max-width: 960px) {
+    .cover {
+        padding: 2rem 1rem;
+        grid-template-columns: repeat(auto-fill, 100%);
+    }
 }

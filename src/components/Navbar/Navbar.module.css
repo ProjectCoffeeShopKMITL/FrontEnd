@@ -343,6 +343,49 @@
   cursor: pointer;
 }
 
+.profileAndLogout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  /* font-size: 16px; */
+}
+.lineInProfileAndLogout {
+  height: 0.5px;
+  width: 100%;
+  background: var(--gray5);
+  margin: 6px 0;
+}
+.profile {
+  font-size: 16px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.logout {
+  font-size: 12px;
+  display: flex;
+  /* justify-content: flex-start; */
+  align-items: center;
+  color: var(--gray4);
+}
+
+.coverUserLoginMobile {
+  color: var(--white);
+  cursor: pointer;
+  display: none;
+}
+.userLoginMobile {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  padding-top: 6px;
+  justify-content: center;
+}
+.activeUserLoginMobile {
+  color: var(--brownlight);
+}
+
 @media only screen and (max-width: 960px) {
   .text {
     display: none;
@@ -352,14 +395,13 @@
   }
   .loginMobile {
     display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .coverUserLoginMobile {
+    display: flex;
   }
   .hamburgerButton {
     display: flex;
   }
 }
-
-/* @media only screen and (min-width: 960px) {
-  .menuOverlay {
-    display: none;
-  }
-} */
