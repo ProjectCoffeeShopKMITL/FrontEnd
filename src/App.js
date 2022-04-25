@@ -21,7 +21,7 @@ function App() {
   if (!isUserLoaded) return <div>Loading</div>
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/coffee">
       <Navbar />
       <Switch>
         <Route exact path="/" component={HomePage} />

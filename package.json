@@ -1,4 +1,6 @@
 {
+  "homepage": "http://localhost:8400/coffee",
+
   "name": "create-react",
   "version": "0.1.0",
   "private": true,
