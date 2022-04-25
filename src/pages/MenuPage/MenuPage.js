@@ -56,9 +56,9 @@ export function MenuPage() {
               new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
             )
           case 'low':
-            return a.price - b.price
+            return a.sale_to - b.sale_to
           case 'high':
-            return b.price - a.price
+            return b.sale_to - a.sale_to
         }
       })
     setFilterMenuList(result)

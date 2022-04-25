@@ -50,14 +50,14 @@ export function Menu({ data }) {
         {data.sale_to !== data.price && <div className={styles.sale}>sale</div>}
 
         <div className={styles.coverDetail}>
-          <div>
+          <div className={styles.coverPriceAndName}>
             <span className={styles.name}>
               {data.name}
               {console.log(data)}
             </span>
-            <div className={styles.rateCustom}>
+            {/* <div className={styles.rateCustom}>
               <Rate disabled defaultValue={data.star} className={styles.star} />
-            </div>
+            </div> */}
 
             {data.sale_to !== data.price ? (
               <div className={styles.coverPriceSaleTo}>

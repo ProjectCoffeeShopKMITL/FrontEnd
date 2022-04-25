@@ -24,6 +24,9 @@ export const UserProvider = ({ children }) => {
   const saveAddressForGuest = ({ note, ...formValue }) => {
     setUser({ ...user, address: [formValue] })
   }
+  const saveAddressForMember = ({ note, ...formValue }) => {
+    setUser({ ...user, address: [formValue] })
+  }
   const login = async (data) => {
     setUser({ ...user, ..._.get(data, '[0]', {}) })
     setIsLogin(true)
@@ -43,6 +46,7 @@ export const UserProvider = ({ children }) => {
         isUserLoaded,
         user,
         saveAddressForGuest,
+        saveAddressForMember,
       }}
     >
       {children}

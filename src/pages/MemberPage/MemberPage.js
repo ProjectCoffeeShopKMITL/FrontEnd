@@ -4,17 +4,18 @@ import styles from './MemberPage.module.css'
 import css from 'classnames'
 import _ from 'lodash'
 
-import img17 from '../../picture/img17.jpeg'
-
+import { FiLogOut } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 
 import { Form, Tabs, Input, Avatar, Row, Col, Divider } from 'antd'
 import { FaRegUserCircle } from 'react-icons/fa'
 
 import { useUserContext } from '../../context/UserContext'
+import { useCartContext } from '../../context/CartContext'
 
 export function MemberPage() {
   const { user, logout } = useUserContext()
+  const { setCartList } = useCartContext()
   const [form] = Form.useForm()
 
   const { TabPane } = Tabs
@@ -33,6 +34,21 @@ export function MemberPage() {
         <Form form={form}>
           <Tabs defaultActiveKey="1" type="line" size={'large'}>
             <TabPane tab="Account Setting" key="Account Setting">
+              <div className={styles.coverLogOut}>
+                <Link
+                  to="/"
+                  onClick={() => {
+                    logout()
+                    setCartList([])
+                  }}
+                  className={styles.buttonLogout}
+                >
+                  <div className={styles.iconLogout}>
+                    <FiLogOut />
+                  </div>
+                  logout
+                </Link>
+              </div>
               <div className={styles.profile}>
                 <div className={styles.coverBlockProfile}>
                   <Avatar
@@ -40,9 +56,15 @@ export function MemberPage() {
                     alt="Han Solo"
                     size={100}
                   />
-                  <Link to="/" onClick={() => logout()}>
+                  {/* <Link
+                    to="/"
+                    onClick={() => {
+                      logout()
+                      setCartList([])
+                    }}
+                  >
                     logout
-                  </Link>
+                  </Link> */}
                 </div>
                 <div className={styles.coverProfileDetail}>
                   <Form.Item name="firstname" label="First name">

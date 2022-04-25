@@ -4,7 +4,7 @@ import styles from './CartPage.module.css'
 import css from 'classnames'
 import _ from 'lodash'
 
-import img17 from '../../picture/img17.jpeg'
+import mocha from '../../picture/mocha.jpeg'
 
 import { Link } from 'react-router-dom'
 
@@ -12,6 +12,7 @@ import { Form, InputNumber, Input, Select, Col, Row } from 'antd'
 import { CgClose } from 'react-icons/cg'
 
 import { useCartContext } from '../../context/CartContext'
+// import { useUserContext } from '../../context/UserContext'
 
 const sweetOptions = [
   { label: '0%', value: 0 },
@@ -22,6 +23,7 @@ const sweetOptions = [
 ]
 
 export function CartPage() {
+  // const { user, isLogin } = useUserContext()
   const { cartList, setCartList } = useCartContext()
   const [form] = Form.useForm()
 
@@ -30,6 +32,7 @@ export function CartPage() {
   }, [cartList])
 
   return (
+    // <div >
     <div style={{ minHeight: '60vh' }}>
       <div className={styles.coverHeader}>
         <div className={styles.imgHeader}></div>
@@ -65,7 +68,13 @@ export function CartPage() {
                 {/* {JSON.stringify(fields)} */}
                 {fields.map(({ name, ...rest }) => (
                   <div className={styles.coverMenu}>
-                    <img src={img17} className={styles.img} />
+                    <Form.Item
+                      name={[name, 'img']}
+                      valuePropName={'src'}
+                      noStyle
+                    >
+                      <img className={styles.img} />
+                    </Form.Item>
 
                     <div className={styles.coverMenuDetail}>
                       <div>

@@ -147,9 +147,9 @@
     height: 400px;
 }
 
-p {
+/* p {
     text-indent: 1rem;
-}
+} */
 
 @media screen and (max-width: 1200px) {
     .topBoxContainer {

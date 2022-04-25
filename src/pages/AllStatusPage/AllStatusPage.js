@@ -8,18 +8,24 @@ import { Row, Col, Divider, Empty } from 'antd'
 import { useUserContext } from '../../context/UserContext'
 
 export function AllStatusPage() {
-  const { user, isUserLoaded } = useUserContext()
+  const { user, isUserLoaded, isLogin } = useUserContext()
   const [orderList, setOrderList] = useState([])
   const history = useHistory()
 
   const fetchOrderList = async () => {
     try {
-      const firstname = user.firstname || user.address[0].firstname
-      const { data } = await axios.get(
-        process.env.REACT_APP_BACKEND + `/orders/${firstname}`
-      )
-      setOrderList(data)
-      console.log('orderList', data)
+      if (isLogin) {
+        const { data } = await axios.get(
+          process.env.REACT_APP_BACKEND + `/orders/member/${user.id}`
+        )
+        setOrderList(data)
+      } else {
+        const firstname = user.address[0].firstname
+        const { data } = await axios.get(
+          process.env.REACT_APP_BACKEND + `/orders/guest/${firstname}`
+        )
+        setOrderList(data)
+      }
     } catch (error) {
       console.log(error)
     }
@@ -34,7 +40,7 @@ export function AllStatusPage() {
     <div style={{ minHeight: '70vh' }}>
       <div className={styles.coverHeader}>
         <div className={styles.imgHeader}></div>
-        <h4 className={styles.textHeader}>STATUS</h4>
+        <h4 className={styles.textHeader}>My Order</h4>
       </div>
       <div className={styles.cover}>
         <div className={styles.noOrder}>

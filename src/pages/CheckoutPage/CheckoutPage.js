@@ -24,11 +24,9 @@ import { useCartContext } from '../../context/CartContext'
 import { useUserContext } from '../../context/UserContext'
 
 export function CheckoutPage() {
-  const { isLogin, login } = useUserContext()
   const { cartList, setCartList } = useCartContext()
-  const { user, saveAddressForGuest } = useUserContext()
-  const [orderForm] = Form.useForm()
-  const [form] = Form.useForm()
+  const { user, saveAddressForGuest, isLogin } = useUserContext()
+  const [orderForm, form] = Form.useForm()
 
   const history = useHistory()
 
@@ -51,6 +49,7 @@ export function CheckoutPage() {
 
   const handleOrder = async (formValue) => {
     try {
+      console.log('tetttttt')
       const { data } = await axios.post(
         process.env.REACT_APP_BACKEND + '/order',
         {
@@ -62,10 +61,20 @@ export function CheckoutPage() {
             (c) => parseFloat(c.price) - parseFloat(c.sale_to)
           ),
           total: _.sumBy(cartList, 'totalPrice') + 20,
-          menu_array: cartList.map((c) => [String(c.id), String(c.quantity)]),
+          menu_array: cartList.map((c) => [
+            String(c.id),
+            String(c.quantity),
+            c.note,
+          ]),
+          member_id: user.id,
         }
       )
       setCartList([])
+
+      if (isLogin) {
+      } else {
+        saveAddressForGuest(formValue)
+      }
       history.push(`/status/${data.id}`)
       notification.success({ message: 'Order Success' })
     } catch (error) {
@@ -98,8 +107,10 @@ export function CheckoutPage() {
           form={orderForm}
           onFinish={(v) => {
             handleOrder(v)
-            const formValue = orderForm.getFieldsValue()
-            saveAddressForGuest(formValue)
+            // const formValue = orderForm.getFieldsValue()
+            // if (isLogin) {
+            //   saveAddressForMember(formValue)
+            // } else saveAddressForGuest(formValue)
           }}
         >
           {/* <Form form={orderForm} > */}

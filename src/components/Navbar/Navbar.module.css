@@ -369,7 +369,14 @@
   align-items: center;
   color: var(--gray4);
 }
-
+.userLogin:hover {
+  color: var(--brownlight);
+}
+.userLogin {
+  transition: 0.5s;
+  font-size: 22px;
+  margin-top: 1.3rem;
+}
 .coverUserLoginMobile {
   color: var(--white);
   cursor: pointer;

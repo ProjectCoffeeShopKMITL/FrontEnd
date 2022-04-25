@@ -5,7 +5,7 @@ import { useHistory, useParams } from 'react-router-dom'
 import _ from 'lodash'
 import axios from 'axios'
 
-import img17 from '../../picture/img17.jpeg'
+import mocha from '../../picture/mocha.jpeg'
 
 import { Form, Steps, Input, Divider, Row, Col } from 'antd'
 import { FaHome } from 'react-icons/fa'
@@ -39,7 +39,7 @@ export function StatusPage() {
   }, [])
 
   return (
-    <div>
+    <div style={{ minHeight: '69vh' }}>
       <div className={styles.coverHeader}>
         <div className={styles.coverArrowBack}>
           <FaHome
@@ -54,7 +54,7 @@ export function StatusPage() {
       <div className={styles.cover}>
         <Form form={form}>
           <div className={styles.step}>
-            <Steps size="small" current={2}>
+            <Steps size="small" current={0}>
               <Step title="Order Placed" />
               <Step title="Processing" />
               <Step title="Shipping" />
@@ -84,7 +84,7 @@ export function StatusPage() {
             {cartList.map((cart, index) => (
               <Fragment key={index}>
                 <div className={styles.menuCard}>
-                  <img src={img17} className={styles.img} />
+                  <img src={mocha} className={styles.img} />
                   <div className={styles.menuDetail}>
                     <Col>
                       <Row>
@@ -108,7 +108,8 @@ export function StatusPage() {
                         <Col>
                           <i>note: &nbsp;</i>
                         </Col>
-                        <Col>{cart.note}</Col>
+                        <Col>{cart.note === 'null' ? '-' : cart.note}</Col>
+                        {/* <Col>ไม่เอาหลอด ใช้นมอัลมอล</Col> */}
                       </Row>
                     </Col>
                     {/* <Row>

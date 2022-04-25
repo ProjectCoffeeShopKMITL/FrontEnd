@@ -153,7 +153,14 @@ export function Navbar() {
                   Profile
                 </Link>
                 <div className={styles.lineInProfileAndLogout} />
-                <Link to="/" onClick={() => logout()} className={styles.logout}>
+                <Link
+                  to="/"
+                  onClick={() => {
+                    logout()
+                    setCartList([])
+                  }}
+                  className={styles.logout}
+                >
                   <FiLogOut
                     style={{
                       fontSize: '12px',
@@ -353,6 +360,41 @@ export function Navbar() {
             <FiUser style={{ fontSize: '24px', marginBottom: '-1rem' }} />
           </NavLink>
         ) : (
+          // <Popover
+          //   placement="bottomLeft"
+          //   content={
+          //     <div className={styles.profileAndLogout}>
+          //       <Link to="/member" className={styles.profile}>
+          //         <FiUser style={{ fontSize: '16px', marginRight: '8px' }} />
+          //         Profile
+          //       </Link>
+          //       <div className={styles.lineInProfileAndLogout} />
+          //       <Link to="/" onClick={() => logout()} className={styles.logout}>
+          //         <FiLogOut
+          //           style={{
+          //             fontSize: '12px',
+          //             margin: '-2px 8px 0 -4px',
+          //           }}
+          //         />
+          //         Logout
+          //       </Link>
+          //     </div>
+          //   }
+          // >
+          //   <div
+          //     // to="/member"
+          //     // activeClassName={styles.activeUserLoginMobile}
+          //     className={styles.userLogin}
+          //     // className={styles.navlink}
+          //   >
+          //     <FiUser
+          //     // style={{
+          //     //   fontSize: '24px',
+          //     //   marginTop: '1rem',
+          //     // }}
+          //     />
+          //   </div>
+          // </Popover>
           <li className={styles.link} onClick={showModal}>
             <div activeClassName={styles.activeLogin} className={styles.login}>
               LOGIN
