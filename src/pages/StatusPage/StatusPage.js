@@ -14,6 +14,7 @@ import { AiOutlineStar } from 'react-icons/ai'
 export function StatusPage() {
   const [cartList, setCartList] = useState([])
   const [orderId, setOrderId] = useState()
+  const [orderStatus, setOrderStatus] = useState()
 
   const [form] = Form.useForm()
 
@@ -30,6 +31,7 @@ export function StatusPage() {
       console.log(data)
       setCartList(data[0].menu_array)
       setOrderId(data[0].id)
+      setOrderStatus(data[0].status)
     } catch (error) {
       console.log(error)
     }
@@ -54,7 +56,7 @@ export function StatusPage() {
       <div className={styles.cover}>
         <Form form={form}>
           <div className={styles.step}>
-            <Steps size="small" current={0}>
+            <Steps size="small" current={orderStatus - 1}>
               <Step title="Order Placed" />
               <Step title="Processing" />
               <Step title="Shipping" />
