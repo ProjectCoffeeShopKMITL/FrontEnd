@@ -312,8 +312,12 @@ export function Navbar() {
                     >
                       VIEW CART
                     </NavLink>
-                    <NavLink to="/AllStatus" className={styles.button}>
-                      VIEW STATUS
+                    <NavLink
+                      to="/AllStatus"
+                      className={styles.button}
+                      activeClassName={styles.activeButtonViewCart}
+                    >
+                      VIEW ORDER
                     </NavLink>
                   </div>
                 </div>
@@ -328,8 +332,12 @@ export function Navbar() {
                     >
                       VIEW CART
                     </NavLink>
-                    <NavLink to="/AllStatus" className={styles.button}>
-                      VIEW STATUS
+                    <NavLink
+                      to="/AllStatus"
+                      className={styles.button}
+                      activeClassName={styles.activeButtonViewCart}
+                    >
+                      VIEW ORDER
                     </NavLink>
                   </div>
                 </div>
@@ -501,13 +509,13 @@ export function Navbar() {
                 <div className={styles.coverUserNameInput}>
                   <Form.Item
                     name="email"
-                    rules={[
-                      {
-                        required: true,
-                        type: 'email',
-                        message: 'The input is Invalid E-mail!',
-                      },
-                    ]}
+                    // rules={[
+                    //   {
+                    //     required: true,
+                    //     type: 'email',
+                    //     message: 'The input is Invalid E-mail!',
+                    //   },
+                    // ]}
                   >
                     <Input
                       allowClear
@@ -521,12 +529,12 @@ export function Navbar() {
                   <Form.Item
                     // noStyle
                     name="password"
-                    rules={[
-                      {
-                        required: true,
-                        message: 'please input your password',
-                      },
-                    ]}
+                    // rules={[
+                    //   {
+                    //     required: true,
+                    //     message: 'please input your password',
+                    //   },
+                    // ]}
                   >
                     <Input.Password
                       allowClear
@@ -578,13 +586,13 @@ export function Navbar() {
                 <div>
                   <Form.Item
                     name="email"
-                    rules={[
-                      {
-                        required: true,
-                        type: 'email',
-                        message: 'The input is Invalid E-mail!',
-                      },
-                    ]}
+                    // rules={[
+                    //   {
+                    //     required: true,
+                    //     type: 'email',
+                    //     message: 'The input is Invalid E-mail!',
+                    //   },
+                    // ]}
                   >
                     <Input placeholder="E-mail" allowClear />
                   </Form.Item>
@@ -614,10 +622,10 @@ export function Navbar() {
                   <Form.Item
                     name="password"
                     rules={[
-                      {
-                        required: true,
-                        message: 'please input your Password',
-                      },
+                      // {
+                      //   required: true,
+                      //   message: 'please input your Password',
+                      // },
                       // {
                       //   pattern: new RegExp(
                       //     /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/

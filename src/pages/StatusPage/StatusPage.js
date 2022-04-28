@@ -84,7 +84,7 @@ export function StatusPage() {
             {cartList.map((cart, index) => (
               <Fragment key={index}>
                 <div className={styles.menuCard}>
-                  <img src={mocha} className={styles.img} />
+                  <img src={cart.img} className={styles.img} />
                   <div className={styles.menuDetail}>
                     <Col>
                       <Row>

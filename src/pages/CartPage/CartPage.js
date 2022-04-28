@@ -4,7 +4,7 @@ import styles from './CartPage.module.css'
 import css from 'classnames'
 import _ from 'lodash'
 
-import mocha from '../../picture/mocha.jpeg'
+// import mocha from '../../picture/mocha.jpeg'
 
 import { Link } from 'react-router-dom'
 
@@ -33,7 +33,7 @@ export function CartPage() {
 
   return (
     // <div >
-    <div style={{ minHeight: '60vh' }}>
+    <div style={{ minHeight: '100vh' }}>
       <div className={styles.coverHeader}>
         <div className={styles.imgHeader}></div>
         <h4 className={styles.textHeader}>CART</h4>

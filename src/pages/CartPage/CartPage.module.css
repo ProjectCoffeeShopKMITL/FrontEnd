@@ -36,7 +36,7 @@
 
 .coverMenuList {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     justify-content: space-between;
     gap: 1rem;
 
@@ -52,7 +52,9 @@
 .coverMenuDetail {
     /* margin: 1rem; */
     display: flex;
-    margin: 8px;
+    /* margin: 8px; */
+    /* padding: 0.5rem 1rem; */
+    padding-left: 1rem;
     width: 100%;
 }
 
