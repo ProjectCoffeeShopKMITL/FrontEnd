@@ -43,6 +43,9 @@ export function Menu({ data }) {
         className={styles.container}
         onClick={() => history.push(`/menu/${data.name}`)}
       >
+        {data.status === 0 && (
+          <div className={styles.outOfStock}>Out Of Stock</div>
+        )}
         <div>
           {/* <img src={data.img} className={styles.img} /> */}
           <img src={data.img} className={styles.img} />

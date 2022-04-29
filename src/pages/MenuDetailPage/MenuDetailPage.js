@@ -97,6 +97,7 @@ const dataList = [
 export function MenuDetailPage() {
   const { menu_name } = useParams()
   const [menu, setMenu] = useState({})
+  const [isOutOfStock, setIsOutOfStock] = useState(false)
 
   const fetchMenu = async () => {
     try {
@@ -109,8 +110,23 @@ export function MenuDetailPage() {
       console.log(error)
     }
   }
+
+  const fetchMenus = async () => {
+    try {
+      const { data } = await axios.get(process.env.REACT_APP_BACKEND + '/menus')
+      _.forEach(data, (d) => {
+        if (d.name === menu_name) {
+          setIsOutOfStock(d.status === 0)
+        }
+      })
+    } catch (error) {
+      alert('Error')
+    }
+  }
+
   useEffect(() => {
     fetchMenu()
+    fetchMenus()
   }, [])
 
   // move to next page
@@ -190,20 +206,24 @@ export function MenuDetailPage() {
                 </div>
                 <FiPlus size={20} />
               </div> */}
-              <div className={styles.button}>
-                <div className={styles.iconCart}>
-                  <IoCartOutline />
+              {isOutOfStock ? (
+                <div>out of stock</div>
+              ) : (
+                <div className={styles.button}>
+                  <div className={styles.iconCart}>
+                    <IoCartOutline />
+                  </div>
+                  <span
+                    className={styles.textButton}
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      setIsDrawerOpen(true)
+                    }}
+                  >
+                    ADD TO CART
+                  </span>
                 </div>
-                <span
-                  className={styles.textButton}
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    setIsDrawerOpen(true)
-                  }}
-                >
-                  ADD TO CART
-                </span>
-              </div>
+              )}
             </div>
           </div>
         </div>
