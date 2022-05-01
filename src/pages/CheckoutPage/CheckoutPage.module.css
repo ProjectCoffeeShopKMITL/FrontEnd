@@ -65,18 +65,58 @@
     justify-content: flex-end;
     margin: -0.6rem 0 1rem 0;
 }
+
+.selectAddressActive:hover {
+    letter-spacing: 1px;
+}
 .selectAddressActive {
+    transition: 0.5s;
     background: var(--brownlight);
     color: var(--white);
     border-radius: 2px;
     width: 150px;
     padding: 0.26rem 0;
     text-align: center;
+    cursor: pointer;
 }
 .notActive {
-    cursor: pointer;
+    display: none;
+    color: var(--white);
+    border-radius: 2px;
+    width: 150px;
+    padding: 0.26rem 0;
+    text-align: center;
     background: var(--gray4);
 }
+
+.coverSelectAddress {
+    overflow-y: auto;
+    max-height: 300px;
+}
+.selectAddress {
+    font-family: "Libre Baskerville";
+}
+.function {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.buttonSelectAddress:hover {
+    letter-spacing: 1px;
+}
+.buttonSelectAddress {
+    cursor: pointer;
+    transition: 0.5s;
+    border-radius: 2px;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--brownlight);
+    color: var(--white);
+}
+
 .coverInOrder {
     margin: 1rem 0 2rem 0;
     /* background: rgb(255, 129, 129); */

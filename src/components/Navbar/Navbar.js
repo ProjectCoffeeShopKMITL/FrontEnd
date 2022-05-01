@@ -489,7 +489,7 @@ export function Navbar() {
             className={styles.navlinkMobile}
             onClick={() => setIsNavbarOpen(false)}
           >
-            STSTUS
+            MY ORDER
           </NavLink>
         </li>
       </div>
@@ -509,13 +509,13 @@ export function Navbar() {
                 <div className={styles.coverUserNameInput}>
                   <Form.Item
                     name="email"
-                    // rules={[
-                    //   {
-                    //     required: true,
-                    //     type: 'email',
-                    //     message: 'The input is Invalid E-mail!',
-                    //   },
-                    // ]}
+                    rules={[
+                      {
+                        required: true,
+                        type: 'email',
+                        message: 'The input is Invalid E-mail!',
+                      },
+                    ]}
                   >
                     <Input
                       allowClear
@@ -529,12 +529,12 @@ export function Navbar() {
                   <Form.Item
                     // noStyle
                     name="password"
-                    // rules={[
-                    //   {
-                    //     required: true,
-                    //     message: 'please input your password',
-                    //   },
-                    // ]}
+                    rules={[
+                      {
+                        required: true,
+                        message: 'please input your password',
+                      },
+                    ]}
                   >
                     <Input.Password
                       allowClear
@@ -586,13 +586,13 @@ export function Navbar() {
                 <div>
                   <Form.Item
                     name="email"
-                    // rules={[
-                    //   {
-                    //     required: true,
-                    //     type: 'email',
-                    //     message: 'The input is Invalid E-mail!',
-                    //   },
-                    // ]}
+                    rules={[
+                      {
+                        required: true,
+                        type: 'email',
+                        message: 'The input is Invalid E-mail!',
+                      },
+                    ]}
                   >
                     <Input placeholder="E-mail" allowClear />
                   </Form.Item>
@@ -604,6 +604,10 @@ export function Navbar() {
                       {
                         required: true,
                         message: 'please input your Phone number',
+                      },
+                      {
+                        min: 10,
+                        message: 'Enter at least 10 ',
                       },
                       {
                         max: 10,
@@ -622,16 +626,17 @@ export function Navbar() {
                   <Form.Item
                     name="password"
                     rules={[
-                      // {
-                      //   required: true,
-                      //   message: 'please input your Password',
-                      // },
-                      // {
-                      //   pattern: new RegExp(
-                      //     /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
-                      //   ),
-                      //   message: 'please input strong password ',
-                      // },
+                      {
+                        required: true,
+                        message: 'please input your Password',
+                      },
+                      {
+                        pattern: new RegExp(
+                          /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
+                        ),
+                        message:
+                          'please input strong password \n (contain at least one digit, one lower case, one lower case, 8 from the mentioned characters)',
+                      },
                       {
                         /* Note */
                       },

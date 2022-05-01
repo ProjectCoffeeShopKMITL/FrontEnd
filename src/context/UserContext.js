@@ -36,10 +36,19 @@ export const UserProvider = ({ children }) => {
     setIsLogin(false)
     localStorage.removeItem(userContextKey)
   }
+  const saveProfile = (formValue) => {
+    setUser({
+      ...user,
+      firstname: formValue.firstname,
+      lastname: formValue.lastname,
+      phone_no: formValue.phone_no,
+    })
+  }
 
   return (
     <UserContext.Provider
       value={{
+        saveProfile,
         logout,
         isLogin,
         login,

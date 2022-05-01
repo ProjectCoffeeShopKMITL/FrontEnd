@@ -116,7 +116,7 @@ export function CartPage() {
                           </div>
                         </div>
                         <div className={styles.detail}>
-                          <div className={styles.title}>totalprice: </div>
+                          <div className={styles.title}>total price: </div>
                           <div className={styles.totalPrice}>
                             <Form.Item
                               name={[name, 'totalPrice']}

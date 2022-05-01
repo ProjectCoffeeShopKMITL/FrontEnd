@@ -163,8 +163,8 @@ export function AllStatusPage() {
               .sort((a, b) => a.id - b.id)
               .map((order, index) => (
                 <div
-                  className={styles.coverOrder}
-                  onClick={() => history.push(`/status/${order.id}`)}
+                  className={styles.coverClosedOrder}
+                  // onClick={() => history.push(`/status/${order.id}`)}
                 >
                   <h2>order# {order.id}</h2>
                   <div>

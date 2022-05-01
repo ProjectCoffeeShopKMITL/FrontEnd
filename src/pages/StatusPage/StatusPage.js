@@ -73,7 +73,8 @@ export function StatusPage() {
             <div className={styles.totalPrice}>
               <div>Purchased Items {_.sumBy(cartList, 'quantity')}</div>
               <div className={styles.price}>
-                {_.sumBy(cartList, (c) => parseFloat(c.sale_to) * c.quantity)}
+                {_.sumBy(cartList, (c) => parseFloat(c.sale_to) * c.quantity) +
+                  20}
                 &nbsp;&nbsp; Baht
               </div>
             </div>

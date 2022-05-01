@@ -27,8 +27,9 @@
 }
 
 .cover {
-    padding: 4rem 32rem;
+    padding: 2rem 20rem 4rem;
     font-family: "Libre Baskerville";
+    min-height: 69vh;
 }
 
 .buttonLogout:hover {
@@ -72,6 +73,54 @@
     align-items: center;
     margin-right: 4rem;
 }
+.buttonChooseAvatar:hover {
+    letter-spacing: 1px;
+}
+.buttonChooseAvatar {
+    margin-top: 1rem;
+    transition: 0.5s;
+    cursor: pointer;
+    /* background: var(--brownlight); */
+    color: var(--brownlight);
+    border: 1px solid var(--brownlight);
+    width: 120px;
+    font-size: 12px;
+    height: 30px;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalChooseProfile {
+    width: 500px;
+}
+.coverChooseImgProfile {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    overflow: auto;
+    max-height: 400px;
+    padding: 1rem;
+}
+
+.imgProfileCard:hover {
+    transform: scale(1.05);
+}
+.imgProfileCard {
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.imgProfile {
+    width: 80px;
+}
 /* .imgProfile {
     width: 140px;
     height: 140px;
@@ -83,18 +132,115 @@
     /* display: flex;
     flex-direction: column; */
 }
+
+.buttonSaveData:hover {
+    letter-spacing: 2px;
+}
+.buttonSaveData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 30px;
+    background: var(--brownlight);
+    color: var(--white);
+    cursor: pointer;
+    transition: 0.5s;
+    border-radius: 2px;
+}
 .allForm {
     display: flex;
     /* background: #000; */
 }
 
 .address {
-    /* background: #000; */
+    /* background: rgb(255, 104, 104); */
     display: flex;
     margin-top: 1rem;
-    /* justify-content: center; */
-    align-items: flex-start;
+    /* align-items: flex-start; */
+    /* flex-direction: column; */
+}
+
+.coverAddAddress {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    justify-content: flex-end;
+}
+.buttonAddAddress:hover {
+    letter-spacing: 1px;
+}
+.buttonAddAddress {
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    cursor: pointer;
+    /* height: 40px; */
+    height: 34px;
+    /* width: 160px; */
+    width: 136px;
+    color: var(--white);
+    background: var(--brownlight);
+}
+.function {
+    /* background: rgb(255, 156, 156); */
+    margin-left: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
     flex-direction: column;
+    gap: 0.8rem;
+}
+.buttonEdit {
+    cursor: pointer;
+    color: var(--brownlight);
+    text-decoration: underline;
+}
+
+.buttonSetDefaultDone {
+    background: var(--brownlight);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 136px;
+    height: 34px;
+    border-radius: 2px;
+    gap: 0.5rem;
+}
+.buttonSetDefault:hover {
+    letter-spacing: 1px;
+}
+.buttonSetDefault {
+    transition: 0.5s;
+    cursor: pointer;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--gray4);
+    width: 136px;
+    height: 34px;
+    border: 1px solid var(--gray4);
+}
+
+.coverContainerOrder {
+    margin-top: 1rem;
+    /* background: #000; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+    gap: 1rem;
+}
+.coverOrder {
+    border-radius: 4px;
+    padding: 1rem;
+    width: 100%;
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 10px 8px 0px; */
+    background: var(--white);
 }
 
 @media only screen and (max-width: 1024px) {
@@ -118,5 +264,18 @@
         justify-content: center;
         align-items: center;
         margin: 0;
+    }
+    .modalChooseProfile {
+        width: 370px;
+    }
+    .coverChooseImgProfile {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        overflow: auto;
+        max-height: 400px;
+    }
+    .imgProfile {
+        width: 70px;
     }
 }

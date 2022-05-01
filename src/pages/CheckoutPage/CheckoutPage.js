@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import css from 'classnames'
 import styles from './CheckoutPage.module.css'
 
-import _ from 'lodash'
+import _, { add } from 'lodash'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 
@@ -27,12 +27,20 @@ export function CheckoutPage() {
   const { cartList, setCartList } = useCartContext()
   const { user, saveAddressForGuest, isLogin } = useUserContext()
   const [orderForm, form] = Form.useForm()
+  const [isModalVisible, setIsModalVisible] = useState(false)
+  const [addressList, setAddressList] = useState([])
 
   const history = useHistory()
 
   const { TextArea } = Input
 
-  // const [isModalVisible, setIsModalVisible] = useState(false)
+  const showModal = () => {
+    setIsModalVisible(true)
+  }
+  const handleCancel = () => {
+    setIsModalVisible(false)
+  }
+
   // const cancleCheckout = () => {
   //   history.goBack()
   // }
@@ -49,7 +57,6 @@ export function CheckoutPage() {
 
   const handleOrder = async (formValue) => {
     try {
-      console.log('tetttttt')
       const { data } = await axios.post(
         process.env.REACT_APP_BACKEND + '/order',
         {
@@ -58,7 +65,7 @@ export function CheckoutPage() {
           shipping: 20,
           discount: _.sumBy(
             cartList,
-            (c) => parseFloat(c.price) - parseFloat(c.sale_to)
+            (c) => (parseFloat(c.price) - parseFloat(c.sale_to)) * c.quantity
           ),
           total: _.sumBy(cartList, 'totalPrice') + 20,
           menu_array: cartList.map((c) => [
@@ -69,6 +76,15 @@ export function CheckoutPage() {
           member_id: user.id,
         }
       )
+      if (!addressList.length && isLogin) {
+        await axios.post(
+          process.env.REACT_APP_BACKEND + `/members/${user.id}/addresses`,
+          {
+            ...formValue,
+            is_main: true,
+          }
+        )
+      }
       setCartList([])
 
       if (isLogin) {
@@ -83,8 +99,27 @@ export function CheckoutPage() {
     }
   }
 
+  const setDefaultAddress = async () => {
+    try {
+      const { data } = await axios.get(
+        process.env.REACT_APP_BACKEND + `/members/${user.id}/addresses`
+      )
+      setAddressList(data)
+      const address = data.find((d) => d.is_main)
+      if (address) {
+        orderForm.setFieldsValue(address)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   useEffect(() => {
-    orderForm.setFieldsValue(_.get(user, 'address[0]', {}))
+    if (isLogin) {
+      setDefaultAddress()
+    } else {
+      orderForm.setFieldsValue(_.get(user, 'address[0]', {}))
+    }
     // console.log('testttt', user)
   }, [])
 
@@ -151,6 +186,10 @@ export function CheckoutPage() {
                       message: 'please input your Phone number',
                     },
                     {
+                      min: 10,
+                      message: 'Enter at least 10 ',
+                    },
+                    {
                       max: 10,
                       message: 'Enter no more than 10 ',
                     },
@@ -173,18 +212,14 @@ export function CheckoutPage() {
                 </Form.Item>
                 <div className={styles.coverSelectAddressButton}>
                   {isLogin ? (
-                    <div className={styles.selectAddressActive}>
-                      Select Address
-                    </div>
-                  ) : (
                     <div
-                      className={css(
-                        styles.notActive,
-                        styles.selectAddressActive
-                      )}
+                      className={styles.selectAddressActive}
+                      onClick={showModal}
                     >
                       Select Address
                     </div>
+                  ) : (
+                    <div className={css(styles.notActive)}>Select Address</div>
                   )}
                 </div>
               </div>
@@ -280,6 +315,71 @@ export function CheckoutPage() {
           </div>
         </div>
       </div>
+      <Modal
+        visible={isModalVisible}
+        width={370}
+        footer={null}
+        // closable={false}
+        maskClosable={true}
+        onCancel={handleCancel}
+      >
+        <Form>
+          <div className={styles.coverSelectAddress}>
+            {addressList.map((a) => (
+              <>
+                <div className={styles.selectAddress}>
+                  <div>
+                    <Row style={{ width: '100%' }}>
+                      <Col span={10}>
+                        <Row justify="start">First name</Row>
+                      </Col>
+                      <Col span={10} style={{ marginTop: '-2px ' }}>
+                        <Row justify="start">{a.firstname}</Row>
+                      </Col>
+                    </Row>
+                    <Row style={{ width: '100%' }}>
+                      <Col span={10}>
+                        <Row justify="start">Last name</Row>
+                      </Col>
+                      <Col span={10} style={{ marginTop: '-2px ' }}>
+                        <Row justify="start">{a.lastname}</Row>
+                      </Col>
+                    </Row>
+                    <Row style={{ width: '100%' }}>
+                      <Col span={10}>
+                        <Row justify="start">Phone number</Row>
+                      </Col>
+                      <Col span={10} style={{ marginTop: '-2px ' }}>
+                        <Row justify="start">{a.phone_no}</Row>
+                      </Col>
+                    </Row>
+                    <Row style={{ width: '100%' }}>
+                      <Col span={10}>
+                        <Row justify="start">Address</Row>
+                      </Col>
+                      <Col span={10} style={{ marginTop: '-2px ' }}>
+                        <Row justify="start">{a.address}</Row>
+                      </Col>
+                    </Row>
+                  </div>
+                  <div className={styles.function}>
+                    <div
+                      className={styles.buttonSelectAddress}
+                      onClick={() => {
+                        orderForm.setFieldsValue(a)
+                        setIsModalVisible(false)
+                      }}
+                    >
+                      Select
+                    </div>
+                  </div>
+                </div>
+                <Divider style={{ marginTop: '10px' }} />
+              </>
+            ))}
+          </div>
+        </Form>
+      </Modal>
     </div>
   )
 }
