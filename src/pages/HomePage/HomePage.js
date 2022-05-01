@@ -29,9 +29,9 @@ export function HomePage() {
               <div className={styles.textIncarousel}>
                 <h3>WELCOME TO OUR SHOP</h3>
                 <p>
-                  Praesent consectetur consectetur arcu, consectetur cursus nisi
-                  blandit sit amet. Integer condimentum urna sed justo gravida
-                  maximus. Morbi feugiat ex eget tortor tempus accumsan.
+                  Coffee Shop is the place where you can get flavorful coffee
+                  strains from global elite brands and roasters at very
+                  affordable price.
                 </p>
               </div>
             </div>
@@ -42,10 +42,9 @@ export function HomePage() {
               <div className={styles.textIncarousel}>
                 <h3>IT'S JUST BEFORE THE COFFEE SHOP</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
+                  We provide a variety of services both to our new and regular
+                  customers. If you can think of anything connected with coffee,
+                  then we can offer it at our Coffee Shop.
                 </p>
               </div>
             </div>
@@ -56,9 +55,11 @@ export function HomePage() {
               <div className={styles.textIncarousel}>
                 <h3>AMAZING TASTE & BEAUTIFUL PLACE</h3>
                 <p>
-                  The placeholder text, beginning with the line “Lorem ipsum
-                  dolor sit amet, consectetur adipiscing elit”. looks like Latin
-                  because in its youth, centuries ago, it was Latin.
+                  Coffee shops have come a long way in recent years. From the
+                  functional cafes of the past to the artisan creative spaces we
+                  have today. While this is great for the consumer, it means
+                  coffee shop owners need to up their game to compete in the
+                  current market.
                 </p>
               </div>
             </div>
@@ -69,10 +70,9 @@ export function HomePage() {
               <div className={styles.textIncarousel}>
                 <h3>ELITE COFFEE BRANDS</h3>
                 <p>
-                  The passage experienced a surge in popularity during the 1960s
-                  when Letraset used it on their dry-transfer sheets, and again
-                  during the 90s as desktop publishers bundled the text with
-                  their software.
+                  Fortunately, creating an effective website for your business
+                  just got a lot easier, thanks to the options in this
+                  collection of the best coffee shop WordPress themes.
                 </p>
               </div>
             </div>
@@ -86,22 +86,25 @@ export function HomePage() {
           <div className={styles.leftBox}>
             <h4>Coffee</h4>
             <p className={styles.textInBox}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Coffee is a brewed drink prepared from roasted coffee beans, the
+              seeds of berries from certain flowering plants in the Coffea
+              genus.
             </p>
           </div>
           <SiBuymeacoffee size={200} className={styles.ourProductIcon} />
           <div className={styles.rightBox}>
             <h4>Soda</h4>
             <p className={styles.textInBox}>
-              Praesent consectetur consectetur arcu, consectetur cursus nisi
-              blandit sit amet.
+              An Italian soda is a soft drink made from carbonated water and
+              flavored syrup. Flavors can be fruit or modeled after the flavors
+              of desserts, spices, or other beverages.
             </p>
             <br />
             <h4>Milk</h4>
             <p className={styles.textInBox}>
-              The placeholder text, beginning with the line “Lorem ipsum dolor
-              sit amet, consectetur adipiscing elit”.
+              Milk is a nutrient-rich liquid food produced by the mammary glands
+              of mammals. It is the primary source of nutrition for young
+              mammalsbefore they are able to digest solid food.
             </p>
           </div>
         </div>

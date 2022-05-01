@@ -24,17 +24,14 @@ export function AboutPage() {
             <img src={imgProfile} className={styles.imgProfile} />
             <div className={styles.topBoxContainer}>
               <div className={styles.coverHeadText}>
-                <span className={styles.headText}>MR. Nicole Fitzgerald</span>
+                <span className={styles.headText}>Our Team</span>
               </div>
               <div className={styles.coverParagraph}>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Maecenas id ligula at lacus suscipit lacinia. Aliquam commodo
-                  orci sed bibendum rutrum. Ut magna magna, efficitur at gravida
-                  non, scelerisque in ante. Maecenas volutpat orci erat, sed
-                  rutrum ex consequat at. Integer mattis, diam nec egestas
-                  commodo, felis ipsum varius est, et sollicitudin purus sapien
-                  ac enim.
+                  We are a team of dedicated coffee fans who celebrate
+                  exceptional coffee brands and roasters by providing our guests
+                  the unique opportunity to try coffee drinks of the highest
+                  quality.
                 </p>
               </div>
               <div className={styles.coverCaption}>
@@ -42,10 +39,14 @@ export function AboutPage() {
               </div>
               <div className={styles.coverParagraph}>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
+                  The coffee shop website theme kills the distance dividing you
+                  and your customers. Compact and up-to-date website template
+                  with discreet architecture and intuitive navigation will help
+                  in creating an internet site that deals with coffee bar or
+                  coffee shop. If you have any questions concerning website
+                  design usage you can take a look at detailed documentation,
+                  also you receive 24/7 priority assistance aiding to respond to
+                  any problem.
                 </p>
               </div>
               <div className={styles.contactContainer}>
@@ -68,10 +69,9 @@ export function AboutPage() {
               </div>
               <div className={styles.coverParagraph}>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
+                  Whenever you feel like a cup of coffee with your name spelled
+                  wrong on it wouldn’t do, feel free to visit this e-store. We
+                  have the best coffee machines online!
                 </p>
               </div>
             </div>
