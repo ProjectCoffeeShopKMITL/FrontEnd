@@ -241,26 +241,25 @@ export function CheckoutPage() {
             <div>
               {cartList.map((cart, index) => (
                 <Fragment key={index}>
-                  <div className={styles.menuDetail}>
-                    <Row>
-                      <Col className={styles.product}>
-                        <Row>
-                          <div className={styles.name}>{cart.name}</div>
-                          {/* <CgClose size={14} /> */}
-                          x&nbsp;&nbsp;&nbsp;&nbsp;
-                          {cart.quantity}
-                        </Row>
-                      </Col>
-                      <Col className={styles.subTotal}>
-                        {cart.totalPrice}&nbsp; Baht
-                      </Col>
-                    </Row>
-                    <Row className={styles.sweet}>sweet&nbsp;{cart.sweet}</Row>
-                    <Row>
-                      <div className={styles.note}>Note:</div> &nbsp;&nbsp;
-                      {cart.note}
-                    </Row>
-                  </div>
+                  <Row className={styles.menuDetail}>
+                    <Col span={10}>
+                      <Row>{cart.name}</Row>
+                      <Row className={styles.sweet}>
+                        sweet&nbsp;&nbsp;{cart.sweet}
+                      </Row>
+                    </Col>
+                    <Col span={10}>x{cart.quantity}</Col>
+                    <Col span={4}>
+                      <Row justify="end">{cart.totalPrice} Baht</Row>
+                      {/* {cart.totalPrice}&nbsp;&nbsp; Baht */}
+                    </Col>
+                    <Col>
+                      <Row>
+                        <div className={styles.note}>Note:</div> &nbsp;&nbsp;
+                        {cart.note}
+                      </Row>
+                    </Col>
+                  </Row>
                 </Fragment>
               ))}
             </div>
