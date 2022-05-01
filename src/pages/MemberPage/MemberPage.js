@@ -99,7 +99,10 @@ export function MemberPage() {
         }
       )
       setIsDrawerOpenAddAddress(false)
-      notification.success({ message: 'Edit Profile Success!' })
+      notification.success({
+        message: 'Edit Profile Success!',
+        placement: 'topLeft',
+      })
       // addAddressForm.resetFields()
       saveProfile(formValue)
     } catch (error) {
@@ -117,7 +120,10 @@ export function MemberPage() {
         }
       )
       setIsDrawerOpenAddAddress(false)
-      notification.success({ message: 'Add Address Success!' })
+      notification.success({
+        message: 'Add Address Success!',
+        placement: 'topLeft',
+      })
       addAddressForm.resetFields()
       // fetchStocks()
       fetchAddressList()
@@ -135,7 +141,10 @@ export function MemberPage() {
         }
       )
       setIsDrawerOpenEditAddress(false)
-      notification.success({ message: 'Edit Address Success!' })
+      notification.success({
+        message: 'Edit Address Success!',
+        placement: 'topLeft',
+      })
       editAddressForm.resetFields()
       fetchAddressList()
     } catch (error) {
@@ -151,7 +160,10 @@ export function MemberPage() {
           `/members/${user.id}/addresses/${formValue.id}`
       )
       setIsDrawerOpenEditAddress(false)
-      notification.success({ message: 'Delete menu Success!' })
+      notification.success({
+        message: 'Delete menu Success!',
+        placement: 'topLeft',
+      })
       editAddressForm.resetFields()
       fetchAddressList()
     } catch (error) {

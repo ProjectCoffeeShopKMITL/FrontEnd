@@ -66,21 +66,27 @@ export function Navbar() {
           password: formValue.password,
         }
       )
-      notification.success({ message: 'Login success' })
+      notification.success({ message: 'Login success', placement: 'topLeft' })
       handleCancel()
       login(data)
     } catch (error) {
-      notification.error({ message: 'Login Failed' })
+      notification.error({ message: 'Login Failed', placement: 'topLeft' })
       console.log(error)
     }
   }
   const handleRegister = async (formValue) => {
     try {
       await axios.post(process.env.REACT_APP_BACKEND + '/register', formValue)
-      notification.success({ message: 'Create Account success' })
+      notification.success({
+        message: 'Create Account success',
+        placement: 'topLeft',
+      })
       handleLogin(formValue)
     } catch (error) {
-      notification.error({ message: 'Create Account Failed' })
+      notification.error({
+        message: 'Create Account Failed',
+        placement: 'topLeft',
+      })
       console.log(error)
     }
   }

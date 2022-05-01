@@ -92,9 +92,9 @@ export function CheckoutPage() {
         saveAddressForGuest(formValue)
       }
       history.push(`/status/${data.id}`)
-      notification.success({ message: 'Order Success' })
+      notification.success({ message: 'Order Success', placement: 'topLeft' })
     } catch (error) {
-      notification.error({ message: 'Order Failed' })
+      notification.error({ message: 'Order Failed', placement: 'topLeft' })
       console.log(error)
     }
   }
