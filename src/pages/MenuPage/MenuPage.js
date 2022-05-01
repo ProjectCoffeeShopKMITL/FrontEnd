@@ -37,7 +37,7 @@ export function MenuPage() {
   }
 
   const onSearch = () => {
-    console.log(menuList)
+    console.log('testst', menuList)
 
     const result = menuList
       .filter((menu) => (filterBy ? menu.type === filterBy : true)) //filter type
@@ -48,12 +48,12 @@ export function MenuPage() {
         //a-b น้อยไปมาก
         switch (sortBy) {
           case 'recommend':
-            return b.is_Recommend - a.is_Recommend
-          case 'popular':
-            return b.rate - a.rate
+            return b.is_recommend - a.is_recommend
+          // case 'popular':
+          //   return b.rate - a.rate
           case 'new':
             return (
-              new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+              new Date(b.create_at).getTime() - new Date(a.create_at).getTime()
             )
           case 'low':
             return a.sale_to - b.sale_to
@@ -67,7 +67,7 @@ export function MenuPage() {
 
   useEffect(() => {
     onSearch()
-  }, [filterBy, sortBy])
+  }, [filterBy, sortBy, menuList])
 
   useEffect(() => {
     fetchMenus()
@@ -120,7 +120,7 @@ export function MenuPage() {
                   <Option value="recommend">Recommend</Option>
                   <Option value="low">Price low - high</Option>
                   <Option value="high">Price high - low</Option>
-                  <Option value="popular">Popularity</Option>
+                  {/* <Option value="popular">Popularity</Option> */}
                   <Option value="new">Newest</Option>
                 </Select>
               </div>

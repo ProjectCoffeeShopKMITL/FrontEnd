@@ -62,12 +62,12 @@ export function CheckoutPage() {
         {
           ...formValue,
           subtotal: _.sumBy(cartList, 'totalPrice'),
-          shipping: 20,
+          shipping: isLogin ? 10 : 20,
           discount: _.sumBy(
             cartList,
             (c) => (parseFloat(c.price) - parseFloat(c.sale_to)) * c.quantity
           ),
-          total: _.sumBy(cartList, 'totalPrice') + 20,
+          total: _.sumBy(cartList, 'totalPrice') + (isLogin ? 10 : 20),
           menu_array: cartList.map((c) => [
             String(c.id),
             String(c.quantity),
@@ -186,16 +186,12 @@ export function CheckoutPage() {
                       message: 'please input your Phone number',
                     },
                     {
-                      min: 10,
-                      message: 'Enter at least 10 ',
-                    },
-                    {
-                      max: 10,
-                      message: 'Enter no more than 10 ',
+                      pattern: new RegExp(/^\d{10}$/),
+                      message: 'please input number only',
                     },
                   ]}
                 >
-                  <Input placeholder="Phone number" type="number" allowClear />
+                  <Input placeholder="Phone number" allowClear />
                 </Form.Item>
               </div>
               <div className={styles.address}>
@@ -259,7 +255,7 @@ export function CheckoutPage() {
                         {cart.totalPrice}&nbsp; Baht
                       </Col>
                     </Row>
-                    <Row className={styles.sweet}>sweet&nbsp;{cart.sweet}%</Row>
+                    <Row className={styles.sweet}>sweet&nbsp;{cart.sweet}</Row>
                     <Row>
                       <div className={styles.note}>Note:</div> &nbsp;&nbsp;
                       {cart.note}
@@ -289,12 +285,12 @@ export function CheckoutPage() {
           </Col>
           <Col className={styles.coverDetailCartTotal}>
             <Row>{_.sumBy(cartList, 'totalPrice')} Baht</Row>
-            <Row>{cartList.length ? 20 : 0} Baht</Row>
+            <Row>{cartList.length ? (isLogin ? 10 : 20) : 0} Baht</Row>
             {/* <Row className={styles.line}></Row> */}
             <Row className={styles.total}>
               {' '}
               {_.sumBy(cartList, 'totalPrice') +
-                (cartList.length ? 20 : 0)}{' '}
+                (cartList.length ? (isLogin ? 10 : 20) : 0)}{' '}
               Baht
             </Row>
           </Col>

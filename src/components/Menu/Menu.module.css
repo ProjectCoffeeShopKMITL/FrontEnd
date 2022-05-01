@@ -221,7 +221,11 @@
     align-items: center;
 }
 
+.addToCartButtonDrawer:hover {
+    letter-spacing: 2px;
+}
 .addToCartButtonDrawer {
+    transition: 0.5s;
     cursor: pointer;
     background: var(--brownlight);
     width: 100%;

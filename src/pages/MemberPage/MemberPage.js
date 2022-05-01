@@ -281,12 +281,8 @@ export function MemberPage() {
                         message: 'please input your Phone number',
                       },
                       {
-                        min: 10,
-                        message: 'Enter at least 10 ',
-                      },
-                      {
-                        max: 10,
-                        message: 'Enter no more than 10 ',
+                        pattern: new RegExp(/^\d{10}$/),
+                        message: 'please input number only',
                       },
                     ]}
                   >
@@ -560,16 +556,16 @@ export function MemberPage() {
             label="Phone number"
             rules={[
               {
-                min: 10,
-                message: 'Enter at least 10 ',
+                required: true,
+                message: 'please input your Phone number',
               },
               {
-                max: 10,
-                message: 'Enter no more than 10 ',
+                pattern: new RegExp(/^\d{10}$/),
+                message: 'please input number only',
               },
             ]}
           >
-            <Input type="number" />
+            <Input />
           </Form.Item>
           <Form.Item name="address" label="Address">
             <TextArea maxLength={200} showCount rows={4} />
@@ -654,12 +650,12 @@ export function MemberPage() {
             label="Phone number"
             rules={[
               {
-                min: 10,
-                message: 'Enter at least 10 ',
+                required: true,
+                message: 'please input your Phone number',
               },
               {
-                max: 10,
-                message: 'Enter no more than 10 ',
+                pattern: new RegExp(/^\d{10}$/),
+                message: 'please input number only',
               },
             ]}
           >

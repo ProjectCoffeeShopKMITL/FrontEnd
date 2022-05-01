@@ -43,61 +43,29 @@ import img8 from '../../picture/img8.jpeg'
 import img9 from '../../picture/img9.jpeg'
 import img13 from '../../picture/img13.jpeg'
 
-const dataList = [
-  // {
-  //   id: 1,
-  //   picture: img7,
-  //   name: 'Latte',
-  //   rate: 3,
-  //   price: 50,
-  //   salePrice: 40,
-  //   review: 20,
-  //   type: CoffeeType.COFFEE,
-  //   isRecommend: true,
-  //   createdAt: '2021-12-14T11:32:40.495Z',
-  // },
-  // {
-  //   id: 2,
-  //   picture: img8,
-  //   name: 'Cappuccino',
-  //   rate: 2,
-  //   price: 65,
-  //   salePrice: null,
-  //   review: 10,
-  //   type: CoffeeType.COFFEE,
-  //   isRecommend: false,
-  //   createdAt: '2021-12-14T11:32:40.495Z',
-  // },
-  // {
-  //   id: 3,
-  //   picture: img9,
-  //   name: 'Mocha',
-  //   rate: 5,
-  //   price: 55,
-  //   salePrice: 40,
-  //   review: 30,
-  //   type: CoffeeType.COFFEE,
-  //   isRecommend: true,
-  //   createdAt: '2021-12-14T11:32:40.495Z',
-  // },
-  // {
-  //   id: 4,
-  //   picture: img13,
-  //   name: 'Americano',
-  //   rate: 4,
-  //   price: 55,
-  //   salePrice: null,
-  //   review: 40,
-  //   type: CoffeeType.MILK,
-  //   isRecommend: true,
-  //   createdAt: '2021-12-14T11:32:40.495Z',
-  // },
-]
-
 export function MenuDetailPage() {
   const { menu_name } = useParams()
   const [menu, setMenu] = useState({})
   const [isOutOfStock, setIsOutOfStock] = useState(false)
+  const [recommendList, setRecommendList] = useState([])
+
+  // move to next page
+  const history = useHistory()
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const [totalPrice, setTotalPrice] = useState(menu.sale_to)
+  const [form] = Form.useForm()
+
+  const { setCartList } = useCartContext()
+
+  const { TextArea } = Input
+
+  const sweet = [
+    { label: '0%', value: '0%' },
+    { label: '25%', value: '25%' },
+    { label: '50%', value: '50%' },
+    { label: '75%', value: '75%' },
+    { label: '100%', value: '100%' },
+  ]
 
   const fetchMenu = async () => {
     try {
@@ -124,28 +92,26 @@ export function MenuDetailPage() {
     }
   }
 
+  const fetchRecommend = async () => {
+    try {
+      const { data } = await axios.get(
+        process.env.REACT_APP_BACKEND + `/menus/recommend`
+      )
+      setRecommendList(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   useEffect(() => {
+    fetchRecommend()
     fetchMenu()
     fetchMenus()
   }, [])
 
-  // move to next page
-  const history = useHistory()
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
-  const [totalPrice, setTotalPrice] = useState(menu.sale_to)
-  const [form] = Form.useForm()
-
-  const { setCartList } = useCartContext()
-
-  const { TextArea } = Input
-
-  const sweet = [
-    { label: '0%', value: '0%' },
-    { label: '25%', value: '25%' },
-    { label: '50%', value: '50%' },
-    { label: '75%', value: '75%' },
-    { label: '100%', value: '100%' },
-  ]
+  useEffect(() => {
+    setTotalPrice(menu.sale_to)
+  }, [menu])
 
   function handleClose() {
     setIsDrawerOpen(false)
@@ -190,10 +156,10 @@ export function MenuDetailPage() {
           <div className={styles.detail}>
             <span className={styles.name}>{menu.name}</span>
             <div className={styles.coverStars}>
-              <div className={styles.rateCustom}>
+              {/* <div className={styles.rateCustom}>
                 <Rate disabled defaultValue={4} className={styles.star} />
-              </div>
-              <span className={styles.review}>(10 review)</span>
+              </div> */}
+              {/* <span className={styles.review}>(10 review)</span> */}
             </div>
             <div className={styles.price}>{menu.sale_to} Baht</div>
             <p className={styles.text}>{menu.description}</p>
@@ -207,21 +173,19 @@ export function MenuDetailPage() {
                 <FiPlus size={20} />
               </div> */}
               {isOutOfStock ? (
-                <div>out of stock</div>
+                <div className={styles.outOfStock}>out of stock</div>
               ) : (
-                <div className={styles.button}>
+                <div
+                  className={styles.button}
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    setIsDrawerOpen(true)
+                  }}
+                >
                   <div className={styles.iconCart}>
                     <IoCartOutline />
                   </div>
-                  <span
-                    className={styles.textButton}
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      setIsDrawerOpen(true)
-                    }}
-                  >
-                    ADD TO CART
-                  </span>
+                  <span className={styles.textButton}>ADD TO CART</span>
                 </div>
               )}
             </div>
@@ -230,7 +194,7 @@ export function MenuDetailPage() {
         <div className={styles.divider}>
           <Divider />
         </div>
-        <div className={styles.coverReview}>
+        {/* <div className={styles.coverReview}>
           <div className={styles.coverHeadText}>
             <span>Review</span>
           </div>
@@ -272,6 +236,16 @@ export function MenuDetailPage() {
               ))}
             </div>
           </div>
+        </div> */}
+        <div className={styles.coverHeadText}>
+          <span>RECOMMEND MENU</span>
+        </div>
+        <div className={styles.coverMenuList}>
+          <div className={styles.menuList}>
+            {recommendList.map((eachData) => (
+              <Menu data={eachData} key={eachData.id} />
+            ))}
+          </div>
         </div>
       </div>
       <Drawer
@@ -281,6 +255,12 @@ export function MenuDetailPage() {
         maskClosable={false}
         keyboard={false}
       >
+        {/* {console.log(
+          form.getFieldsValue().quantity,
+          data.price,
+          data.price * form.getFieldsValue().quantity
+        )} */}
+
         <Form
           onFieldsChange={() => {
             setTotalPrice(menu.sale_to * form.getFieldsValue().quantity)

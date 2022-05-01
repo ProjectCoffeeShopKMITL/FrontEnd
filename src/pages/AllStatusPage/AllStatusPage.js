@@ -66,28 +66,41 @@ export function AllStatusPage() {
                   className={styles.coverOrder}
                   onClick={() => history.push(`/status/${order.id}`)}
                 >
-                  <h2>order# {order.id}</h2>
-                  <div>
-                    date:{' '}
-                    {new Date(order.order_timestamptz).toLocaleDateString(
-                      'th-TH',
-                      {
-                        day: '2-digit',
-                        month: '2-digit',
-                        year: '2-digit',
-                      }
-                    )}
+                  <div className={styles.coverDateAndTime}>
+                    <h2>Order# {order.id}</h2>
+                    <div>
+                      <div className={styles.dateAntTime}>
+                        date:{' '}
+                        {new Date(order.order_timestamptz).toLocaleDateString(
+                          'th-TH',
+                          {
+                            day: '2-digit',
+                            month: '2-digit',
+                            year: '2-digit',
+                          }
+                        )}
+                      </div>
+                      <div className={styles.dateAntTime}>
+                        time:{' '}
+                        {new Date(order.order_timestamptz).toLocaleTimeString(
+                          'th-TH',
+                          {
+                            timeStyle: 'short',
+                          }
+                        )}
+                      </div>
+                    </div>
                   </div>
+
                   <div>
-                    time:{' '}
-                    {new Date(order.order_timestamptz).toLocaleTimeString(
-                      'th-TH',
-                      {
-                        timeStyle: 'short',
-                      }
-                    )}
+                    name: {order.firstname}
+                    {'  '}
+                    {order.lastname}
                   </div>
+                  <div>phone number: {order.phone_no}</div>
                   <div>address: {order.address}</div>
+                  {/* <div>note: {(order.note = '' ? '-' : order.note)}</div> */}
+                  <div>note: {order.note}</div>
                   <br />
 
                   <Row>
@@ -135,7 +148,7 @@ export function AllStatusPage() {
                       <Row justify="center">Shipping</Row>
                     </Col>
                     <Col span={8}>
-                      <Row justify="end">20.00</Row>
+                      <Row justify="end">{isLogin ? '10.00' : '20.00'}</Row>
                     </Col>
                   </Row>
                   <Divider style={{ margin: '1rem' }} />
@@ -168,28 +181,41 @@ export function AllStatusPage() {
                   className={styles.coverClosedOrder}
                   // onClick={() => history.push(`/status/${order.id}`)}
                 >
-                  <h2>order# {order.id}</h2>
-                  <div>
-                    date:{' '}
-                    {new Date(order.order_timestamptz).toLocaleDateString(
-                      'th-TH',
-                      {
-                        day: '2-digit',
-                        month: '2-digit',
-                        year: '2-digit',
-                      }
-                    )}
+                  <div className={styles.coverDateAndTime}>
+                    <h2>Order# {order.id}</h2>
+                    <div>
+                      <div className={styles.dateAntTime}>
+                        date:{' '}
+                        {new Date(order.order_timestamptz).toLocaleDateString(
+                          'th-TH',
+                          {
+                            day: '2-digit',
+                            month: '2-digit',
+                            year: '2-digit',
+                          }
+                        )}
+                      </div>
+                      <div className={styles.dateAntTime}>
+                        time:{' '}
+                        {new Date(order.order_timestamptz).toLocaleTimeString(
+                          'th-TH',
+                          {
+                            timeStyle: 'short',
+                          }
+                        )}
+                      </div>
+                    </div>
                   </div>
+
                   <div>
-                    time:{' '}
-                    {new Date(order.order_timestamptz).toLocaleTimeString(
-                      'th-TH',
-                      {
-                        timeStyle: 'short',
-                      }
-                    )}
+                    name: {order.firstname}
+                    {'  '}
+                    {order.lastname}
                   </div>
+                  <div>phone number: {order.phone_no}</div>
                   <div>address: {order.address}</div>
+                  {/* <div>note: {(order.note = '' ? '-' : order.note)}</div> */}
+                  <div>note: {order.note}</div>
                   <br />
 
                   <Row>
@@ -237,7 +263,7 @@ export function AllStatusPage() {
                       <Row justify="center">Shipping</Row>
                     </Col>
                     <Col span={8}>
-                      <Row justify="end">20.00</Row>
+                      <Row justify="end">{isLogin ? '10.00' : '20.00'}</Row>
                     </Col>
                   </Row>
                   <Divider style={{ margin: '1rem' }} />

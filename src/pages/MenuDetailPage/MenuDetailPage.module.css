@@ -30,7 +30,7 @@
 .container {
     /* background: rgb(255, 144, 144); */
     color: var(--white);
-    max-width: 900px;
+    max-width: 1000px;
     width: 100%;
     margin: 0 auto;
     padding: 4rem 0;
@@ -38,27 +38,28 @@
 
 .coverDetail {
     /* background: rgb(255, 111, 111); */
-    max-width: 800px;
+    max-width: 1000px;
     width: 100%;
     margin: 0 auto;
     /* min-height: 300px; */
     display: flex;
 }
 .carouselContainer {
-    width: 350px;
+    width: 400px;
 }
 .img {
     border-radius: 4px;
-    width: 350px;
-    height: 250px;
+    width: 400px;
+    height: 300px;
     object-fit: cover;
 }
 
 .detail {
     /* background: rgb(130, 255, 119); */
-    max-width: 400px;
+    max-width: 600px;
     width: 100%;
-    margin-left: auto;
+    padding-left: 4rem;
+    /* margin-left: auto; */
     font-family: "Libre Baskerville";
 }
 
@@ -148,7 +149,7 @@
     transform: scale(1.05);
 } */
 .button:hover {
-    letter-spacing: 4px;
+    letter-spacing: 2px;
 }
 .button {
     padding: 0.8rem 0;
@@ -227,6 +228,17 @@
     justify-content: center;
     margin: 0 6rem 0 2rem;
 }
+.outOfStock {
+    font-size: 16px;
+    margin-top: -1rem;
+    background: var(--gray4);
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+}
 .profile {
     margin-left: 1rem;
 }
@@ -249,13 +261,110 @@
     color: var(--black);
     display: grid;
     /* grid-template-columns: repeat(auto-fill, 280px); */
-    grid-template-columns: repeat(auto-fill, 200px);
+    grid-template-columns: repeat(4, 1fr);
+    /* justify-content: space-between; */
+    gap: 1rem;
+}
+
+.drawerSweet {
+    font-family: "Libre Baskerville";
+}
+.closeButton {
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    /* margin: 1rem; */
+}
+.titleDrawer {
+    /* background: rgb(255, 158, 158); */
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 2rem;
+}
+
+.header {
+    font-size: 16px;
+}
+.sweet :global(.ant-radio-group.ant-radio-group-solid) {
+    display: flex;
+    font-size: 16px;
+}
+
+.sweet :global(.ant-radio-button-wrapper) {
+    text-align: center;
+    flex: 1;
+}
+
+.line {
+    background: var(--gray5);
+    height: 1px;
+    margin-bottom: 1.6rem;
+}
+
+/* .coverRow2 {
+    background: #ff9b9b;
+    width: 300px;
+    display: flex;
     justify-content: space-between;
+} */
+.coverQuantityPrice {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+}
+.coverInQuanPri {
+    /* background: rgb(255, 126, 126); */
+    display: flex;
+    justify-content: center;
+}
+
+.inputNumberText {
+    /* background: rgb(255, 92, 92); */
+    display: flex;
+    padding-right: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 100;
+    color: var(--gray3);
+}
+
+.countPrice {
+    width: 66px;
+    height: 32px;
+    /* background: rgb(255, 174, 174); */
+    border-bottom: 1.5px solid var(--brownlight);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.addToCartButtonDrawer:hover {
+    letter-spacing: 2px;
+}
+.addToCartButtonDrawer {
+    transition: 0.5s;
+    cursor: pointer;
+    background: var(--brownlight);
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: var(--white);
+    border-radius: 2px;
+    margin-top: 4rem;
 }
 
 @media only screen and (max-width: 960px) {
     .container {
         padding: 2rem 1rem;
+    }
+    .drawerSweet :global(.ant-drawer-content-wrapper) {
+        width: 100vw !important;
     }
     .coverDetail {
         justify-content: center;

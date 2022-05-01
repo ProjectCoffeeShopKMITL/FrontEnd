@@ -606,20 +606,12 @@ export function Navbar() {
                         message: 'please input your Phone number',
                       },
                       {
-                        min: 10,
-                        message: 'Enter at least 10 ',
-                      },
-                      {
-                        max: 10,
-                        message: 'Enter no more than 10 ',
+                        pattern: new RegExp(/^\d{10}$/),
+                        message: 'please input number only',
                       },
                     ]}
                   >
-                    <Input
-                      placeholder="Phone number"
-                      type="number"
-                      allowClear
-                    />
+                    <Input placeholder="Phone number" allowClear />
                   </Form.Item>
                 </div>
                 <div>

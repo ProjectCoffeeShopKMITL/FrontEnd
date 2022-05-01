@@ -11,10 +11,13 @@ import { Form, Steps, Input, Divider, Row, Col } from 'antd'
 import { FaHome } from 'react-icons/fa'
 import { AiOutlineStar } from 'react-icons/ai'
 
+import { useUserContext } from '../../context/UserContext'
+
 export function StatusPage() {
   const [cartList, setCartList] = useState([])
   const [orderId, setOrderId] = useState()
   const [orderStatus, setOrderStatus] = useState()
+  const { isLogin } = useUserContext()
 
   const [form] = Form.useForm()
 
@@ -74,7 +77,7 @@ export function StatusPage() {
               <div>Purchased Items {_.sumBy(cartList, 'quantity')}</div>
               <div className={styles.price}>
                 {_.sumBy(cartList, (c) => parseFloat(c.sale_to) * c.quantity) +
-                  20}
+                  (isLogin ? 10 : 20)}
                 &nbsp;&nbsp; Baht
               </div>
             </div>

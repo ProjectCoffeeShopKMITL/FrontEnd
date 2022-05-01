@@ -12,7 +12,7 @@ import { Form, InputNumber, Input, Select, Col, Row } from 'antd'
 import { CgClose } from 'react-icons/cg'
 
 import { useCartContext } from '../../context/CartContext'
-// import { useUserContext } from '../../context/UserContext'
+import { useUserContext } from '../../context/UserContext'
 
 const sweetOptions = [
   { label: '0%', value: 0 },
@@ -23,7 +23,7 @@ const sweetOptions = [
 ]
 
 export function CartPage() {
-  // const { user, isLogin } = useUserContext()
+  const { user, isLogin } = useUserContext()
   const { cartList, setCartList } = useCartContext()
   const [form] = Form.useForm()
 
@@ -172,12 +172,14 @@ export function CartPage() {
                 {_.sumBy(cartList, (c) => c.price - c.sale_to)}&nbsp;&nbsp;Baht
               </span> */}
               <span>
-                SHIPPING : &nbsp;&nbsp;&nbsp;&nbsp;{cartList.length ? 20 : 0}
+                SHIPPING : &nbsp;&nbsp;&nbsp;&nbsp;
+                {cartList.length ? (isLogin ? 10 : 20) : 0}
                 &nbsp;&nbsp;Baht
               </span>
               <span>
                 TOTAL : &nbsp;&nbsp;&nbsp;&nbsp;
-                {_.sumBy(cartList, 'totalPrice') + (cartList.length ? 20 : 0)}
+                {_.sumBy(cartList, 'totalPrice') +
+                  (cartList.length ? (isLogin ? 10 : 20) : 0)}
                 &nbsp;Baht
               </span>
             </div>
