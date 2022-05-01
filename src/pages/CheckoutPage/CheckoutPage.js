@@ -178,7 +178,7 @@ export function CheckoutPage() {
                   <Input placeholder="Last name" allowClear />
                 </Form.Item>
                 <Form.Item
-                  // noStyle๙
+                  // noStyle
                   name="phone_no"
                   rules={[
                     {
@@ -317,11 +317,12 @@ export function CheckoutPage() {
       </div>
       <Modal
         visible={isModalVisible}
-        width={370}
+        width={400}
         footer={null}
         // closable={false}
         maskClosable={true}
         onCancel={handleCancel}
+        title="My Address"
       >
         <Form>
           <div className={styles.coverSelectAddress}>
@@ -329,7 +330,7 @@ export function CheckoutPage() {
               <>
                 <div className={styles.selectAddress}>
                   <div>
-                    <Row style={{ width: '100%' }}>
+                    <Row style={{ width: '100%', marginBottom: '4px' }}>
                       <Col span={10}>
                         <Row justify="start">First name</Row>
                       </Col>
@@ -337,7 +338,8 @@ export function CheckoutPage() {
                         <Row justify="start">{a.firstname}</Row>
                       </Col>
                     </Row>
-                    <Row style={{ width: '100%' }}>
+
+                    <Row style={{ width: '100%', marginBottom: '4px' }}>
                       <Col span={10}>
                         <Row justify="start">Last name</Row>
                       </Col>
@@ -345,7 +347,7 @@ export function CheckoutPage() {
                         <Row justify="start">{a.lastname}</Row>
                       </Col>
                     </Row>
-                    <Row style={{ width: '100%' }}>
+                    <Row style={{ width: '100%', marginBottom: '4px' }}>
                       <Col span={10}>
                         <Row justify="start">Phone number</Row>
                       </Col>
@@ -353,11 +355,11 @@ export function CheckoutPage() {
                         <Row justify="start">{a.phone_no}</Row>
                       </Col>
                     </Row>
-                    <Row style={{ width: '100%' }}>
+                    <Row style={{ width: '100%', marginBottom: '4px' }}>
                       <Col span={10}>
                         <Row justify="start">Address</Row>
                       </Col>
-                      <Col span={10} style={{ marginTop: '-2px ' }}>
+                      <Col span={14} style={{ marginTop: '-2px ' }}>
                         <Row justify="start">{a.address}</Row>
                       </Col>
                     </Row>

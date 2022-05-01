@@ -232,15 +232,16 @@
     /* background: #000; */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    justify-content: space-between;
+    /* justify-content: space-between; */
     gap: 1rem;
+    padding: 1rem;
 }
 .coverOrder {
     border-radius: 4px;
     padding: 1rem;
     width: 100%;
-    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 10px 8px 0px; */
-    background: var(--white);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 0px 8px 0px;
+    /* background: var(--white); */
 }
 
 @media only screen and (max-width: 1024px) {

@@ -21,8 +21,10 @@ export function AllStatusPage() {
         setOrderList(data)
       } else {
         const firstname = user.address[0].firstname
+        const lastname = user.address[0].lastname
         const { data } = await axios.get(
-          process.env.REACT_APP_BACKEND + `/orders/guest/${firstname}`
+          process.env.REACT_APP_BACKEND +
+            `/orders/guest/${firstname}/${lastname}`
         )
         setOrderList(data)
       }
@@ -43,14 +45,14 @@ export function AllStatusPage() {
         <h4 className={styles.textHeader}>My Order</h4>
       </div>
       <div className={styles.cover}>
-        <div className={styles.noOrder}>
+        {/* <div className={styles.noOrder}>
           {!orderList.length && (
             <Empty
               description="No Order"
               image={Empty.PRESENTED_IMAGE_SIMPLE}
             />
           )}
-        </div>
+        </div> */}
         <h2>Order</h2>
         <div className={styles.coverContainerOrder}>
           {!orderList.filter((o) => o.status !== 4).length ? (

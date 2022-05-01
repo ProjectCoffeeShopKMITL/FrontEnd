@@ -171,6 +171,17 @@ export function MemberPage() {
     }
   }
 
+  const fetchOrderList = async () => {
+    try {
+      const { data } = await axios.get(
+        process.env.REACT_APP_BACKEND + `/orders/member/${user.id}`
+      )
+      setOrderList(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const fetchAddressList = async () => {
     try {
       const { data } = await axios.get(
@@ -183,6 +194,7 @@ export function MemberPage() {
   }
 
   useEffect(() => {
+    fetchOrderList()
     fetchAddressList()
     formUpdate.setFieldsValue(user)
   }, [user])
