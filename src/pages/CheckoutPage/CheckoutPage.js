@@ -221,7 +221,7 @@ export function CheckoutPage() {
               </div>
               <Form.Item name="note" noStyle>
                 <TextArea
-                  rows={4}
+                  rows={3}
                   placeholder="Note"
                   allowClear
                   maxLength={100}
@@ -245,17 +245,21 @@ export function CheckoutPage() {
                     <Col span={10}>
                       <Row>{cart.name}</Row>
                       <Row className={styles.sweet}>
-                        sweet&nbsp;&nbsp;{cart.sweet}
+                        sweet&nbsp;&nbsp;
+                        {cart.sweet}
                       </Row>
                     </Col>
-                    <Col span={10}>x{cart.quantity}</Col>
+                    <Col span={10}>
+                      x&nbsp;&nbsp;&nbsp;
+                      {cart.quantity}
+                    </Col>
                     <Col span={4}>
                       <Row justify="end">{cart.totalPrice} Baht</Row>
                       {/* {cart.totalPrice}&nbsp;&nbsp; Baht */}
                     </Col>
                     <Col>
                       <Row>
-                        <div className={styles.note}>Note:</div> &nbsp;&nbsp;
+                        <div className={styles.note}>Note: </div>&nbsp;&nbsp;
                         {cart.note}
                       </Row>
                     </Col>

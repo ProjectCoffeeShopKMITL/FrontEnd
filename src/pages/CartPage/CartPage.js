@@ -79,7 +79,7 @@ export function CartPage() {
                     <div className={styles.coverMenuDetail}>
                       <div>
                         <div className={styles.detail}>
-                          <div className={styles.title}>name: </div>
+                          <div className={styles.title}>Name: </div>
                           <Form.Item name={[name, 'name']} {...rest} noStyle>
                             <Input
                               bordered={false}
@@ -89,7 +89,7 @@ export function CartPage() {
                         </div>
 
                         <div className={styles.detail}>
-                          <div className={styles.title}>sweet: </div>
+                          <div className={styles.title}>Sweet: </div>
                           <div className={styles.sweet}>
                             <Form.Item name={[name, 'sweet']} {...rest} noStyle>
                               <Select
@@ -100,7 +100,7 @@ export function CartPage() {
                           </div>
                         </div>
                         <div className={styles.detail}>
-                          <div className={styles.title}>quantity: </div>
+                          <div className={styles.title}>Quantity: </div>
                           <div className={styles.quantity}>
                             <Form.Item
                               name={[name, 'quantity']}
@@ -116,7 +116,7 @@ export function CartPage() {
                           </div>
                         </div>
                         <div className={styles.detail}>
-                          <div className={styles.title}>total price: </div>
+                          <div className={styles.title}>Total Price: </div>
                           <div className={styles.totalPrice}>
                             <Form.Item
                               name={[name, 'totalPrice']}
@@ -133,7 +133,8 @@ export function CartPage() {
                         </div>
                         <div className={css(styles.detail, styles.note)}>
                           <div className={styles.title}>
-                            <i>note: </i>{' '}
+                            {/* <i>Note: </i>{' '} */}
+                            <div>Note: </div>{' '}
                           </div>
                           <Form.Item name={[name, 'note']} {...rest} noStyle>
                             <Input bordered={false} />
@@ -164,7 +165,7 @@ export function CartPage() {
             <div className={styles.textHeaderCartTotal}>CART TOTAL</div>
             <div className={styles.detailCartTotal}>
               <span>
-                SUBTOTAL : &nbsp;&nbsp;&nbsp;&nbsp;
+                Subtotal : &nbsp;&nbsp;&nbsp;&nbsp;
                 {_.sumBy(cartList, 'totalPrice')}&nbsp;&nbsp;Baht
               </span>
               {/* <span>
@@ -172,12 +173,12 @@ export function CartPage() {
                 {_.sumBy(cartList, (c) => c.price - c.sale_to)}&nbsp;&nbsp;Baht
               </span> */}
               <span>
-                SHIPPING : &nbsp;&nbsp;&nbsp;&nbsp;
+                Shipping : &nbsp;&nbsp;&nbsp;&nbsp;
                 {cartList.length ? (isLogin ? 10 : 20) : 0}
                 &nbsp;&nbsp;Baht
               </span>
               <span>
-                TOTAL : &nbsp;&nbsp;&nbsp;&nbsp;
+                Total : &nbsp;&nbsp;&nbsp;&nbsp;
                 {_.sumBy(cartList, 'totalPrice') +
                   (cartList.length ? (isLogin ? 10 : 20) : 0)}
                 &nbsp;Baht

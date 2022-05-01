@@ -83,7 +83,7 @@ export function MenuPage() {
         <div className={styles.container}>
           <div className={styles.coverFunction}>
             <Input
-              placeholder="search menu"
+              placeholder="Search menu"
               prefix={<CgSearch />}
               className={styles.search}
               // style={{ width: 200 }}
