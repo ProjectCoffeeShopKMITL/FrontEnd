@@ -385,4 +385,7 @@
     .menuList {
         grid-template-columns: repeat(auto-fill, 100%);
     }
+    .detail {
+        padding: 0;
+    }
 }
