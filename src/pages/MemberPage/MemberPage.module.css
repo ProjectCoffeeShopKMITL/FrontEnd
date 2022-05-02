@@ -154,6 +154,7 @@
 }
 
 .address {
+    /* background: #000; */
     /* background: rgb(255, 104, 104); */
     display: flex;
     margin-top: 1rem;
@@ -246,14 +247,20 @@
 
 @media only screen and (max-width: 1024px) {
     .cover {
-        padding: 2rem 10rem;
+        padding: 2rem 6rem;
         justify-content: center;
         align-items: center;
+    }
+    .coverContainerOrder {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .address {
+        font-size: 14px;
     }
 }
 @media only screen and (max-width: 960px) {
     .cover {
-        padding: 1rem 2rem;
+        padding: 1rem;
     }
     .profile {
         margin-top: 1rem;
@@ -278,5 +285,22 @@
     }
     .imgProfile {
         width: 70px;
+    }
+    .coverContainerOrder {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0.5rem;
+    }
+    .address {
+        font-size: 10px;
+        /* flex-direction: column; */
+    }
+
+    .buttonSetDefaultDone {
+        width: 80px;
+        height: 30px;
+    }
+    .buttonSetDefault {
+        width: 80px;
+        height: 30px;
     }
 }

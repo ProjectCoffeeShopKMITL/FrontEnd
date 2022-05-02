@@ -322,7 +322,7 @@ export function MemberPage() {
                       <Col span={4}>
                         <Row justify="start">First name</Row>
                       </Col>
-                      <Col span={20} style={{ marginTop: '-2px ' }}>
+                      <Col span={16} style={{ marginTop: '-2px ' }}>
                         <Row justify="start">{a.firstname}</Row>
                       </Col>
                     </Row>
@@ -330,7 +330,7 @@ export function MemberPage() {
                       <Col span={4}>
                         <Row justify="start">Last name</Row>
                       </Col>
-                      <Col span={20} style={{ marginTop: '-2px ' }}>
+                      <Col span={16} style={{ marginTop: '-2px ' }}>
                         <Row justify="start">{a.lastname}</Row>
                       </Col>
                     </Row>
@@ -338,7 +338,7 @@ export function MemberPage() {
                       <Col span={4}>
                         <Row justify="start">Phone number</Row>
                       </Col>
-                      <Col span={20} style={{ marginTop: '-2px ' }}>
+                      <Col span={16} style={{ marginTop: '-2px ' }}>
                         <Row justify="start">{a.phone_no}</Row>
                       </Col>
                     </Row>
@@ -346,7 +346,7 @@ export function MemberPage() {
                       <Col span={4}>
                         <Row justify="start">Address</Row>
                       </Col>
-                      <Col span={20} style={{ marginTop: '-2px ' }}>
+                      <Col span={16} style={{ marginTop: '-2px ' }}>
                         <Row justify="start">{a.address}</Row>
                       </Col>
                     </Row>
@@ -473,7 +473,8 @@ export function MemberPage() {
                           <Row justify="end">20.00</Row>
                         </Col>
                       </Row>
-                      <Divider style={{ margin: '1rem' }} />
+                      {/* <Divider style={{ margin: '1rem' }} /> */}
+                      <Divider />
                       <Row>
                         <Col span={8}></Col>
                         <Col span={8}>

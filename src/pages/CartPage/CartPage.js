@@ -46,7 +46,7 @@ export function CartPage() {
 
             const keepTotalPrice = formValue.cartList.map((cart) => ({
               ...cart,
-              totalPrice: cart.price * cart.quantity,
+              totalPrice: cart.sale_to * cart.quantity,
             }))
             setCartList(keepTotalPrice)
             form.setFieldsValue({ cartList: keepTotalPrice })
