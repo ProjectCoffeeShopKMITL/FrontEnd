@@ -161,7 +161,9 @@ export function MenuDetailPage() {
               </div> */}
               {/* <span className={styles.review}>(10 review)</span> */}
             </div>
-            <div className={styles.price}>{menu.sale_to} Baht</div>
+            <div className={styles.price}>
+              {_.invoke(menu.sale_to, 'toFixed', 2)} Baht
+            </div>
             <p className={styles.text}>{menu.description}</p>
             <Divider />
             <div className={styles.coverCountAndAdd}>

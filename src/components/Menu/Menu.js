@@ -1,6 +1,8 @@
 import styles from './Menu.module.css'
 import { useState } from 'react'
 
+import _ from 'lodash'
+
 import { useHistory } from 'react-router-dom'
 import { nanoid } from 'nanoid'
 
@@ -41,7 +43,10 @@ export function Menu({ data }) {
     <>
       <div
         className={styles.container}
-        onClick={() => history.push(`/menu/${data.name}`)}
+        onClick={() => {
+          history.push(`/menu/${data.name}`)
+          window.location.reload()
+        }}
       >
         {data.status === 0 && (
           <div className={styles.outOfStock}>
@@ -67,12 +72,18 @@ export function Menu({ data }) {
             {data.sale_to !== data.price ? (
               <div className={styles.coverPriceSaleTo}>
                 <span className={styles.priceSaleTo}>
-                  {data.price}&nbsp;Baht
+                  {_.invoke(Number(data.price), 'toFixed', 2)}&nbsp;Baht
                 </span>
-                <span className={styles.price}>{data.sale_to}&nbsp;Baht</span>
+                <span className={styles.price}>
+                  {' '}
+                  {_.invoke(Number(data.sale_to), 'toFixed', 2)}&nbsp;Baht
+                </span>
               </div>
             ) : (
-              <span className={styles.price}>{data.price}&nbsp;Baht</span>
+              <span className={styles.price}>
+                {' '}
+                {_.invoke(Number(data.price), 'toFixed', 2)}&nbsp;Baht
+              </span>
             )}
           </div>
           <div
@@ -155,7 +166,7 @@ export function Menu({ data }) {
             <div className={styles.coverInQuanPri}>
               <div className={styles.inputNumberText}>Price</div>
               <div className={styles.countPrice}>
-                {totalPrice}
+                {_.invoke(Number(totalPrice), 'toFixed', 2)}
                 <div>฿</div>
               </div>
             </div>
